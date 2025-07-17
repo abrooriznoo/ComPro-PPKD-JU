@@ -99,6 +99,20 @@
                         <label>Ganti Foto (opsional)</label>
                         <input type="file" name="photo" class="form-control-file" accept="image/*">
                     </div>
+                    <hr>
+                    <div class="form-group">
+                        <label for="">Is Active</label>
+                        <div class="d-flex gap-3">
+                            <div>
+                                <input type="radio" id="is_active_publish<?= $row['id'] ?>" name="is_active" class="form-control-radio" value="1" <?= $row['is_active'] ? 'checked' : '' ?>>
+                                <label for="is_active_publish<?= $row['id'] ?>">Publish</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="is_active_archive<?= $row['id'] ?>" name="is_active" class="form-control-radio" value="0" <?= !$row['is_active'] ? 'checked' : '' ?>>
+                                <label for="is_active_archive<?= $row['id'] ?>">Archive</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" data-dismiss="modal">Batal</button>

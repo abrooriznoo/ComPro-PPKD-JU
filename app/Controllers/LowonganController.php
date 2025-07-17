@@ -13,7 +13,7 @@ class LowonganController extends BaseController
         $model = new Lowongan();
 
         // Ambil semua data lowongan
-        $data = $model->findAll();
+        $data = $model->where('is_active', 1)->findAll();
 
         return view('lowongan', ['data' => $data]);
     }
@@ -73,6 +73,7 @@ class LowonganController extends BaseController
         $company = $this->request->getPost('company');
         $desc = $this->request->getPost('description');
         $photo = $this->request->getFile('photo');
+        $is_active = $this->request->getPost('is_active') ? 1 : 0;
 
         // Ambil data lama via model
         $oldData = $model->find($id);
@@ -86,6 +87,7 @@ class LowonganController extends BaseController
             'company' => $company,
             'description' => $desc,
             'updated_at' => date('Y-m-d H:i:s'),
+            'is_active' => $is_active,
         ];
 
         // Upload folder
