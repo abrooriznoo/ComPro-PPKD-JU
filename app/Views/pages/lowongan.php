@@ -19,8 +19,17 @@
                                             <h5 class="card-title mb-1"><?= $row['title'] ?></h5>
                                             <small
                                                 class="text-muted mb-2"><?= isset($row['company']) ? $row['company'] : 'Hariston Hotel & Suites' ?></small>
-                                            <p class="card-text small text-muted mb-2" style="min-height: 100px;">
-                                                <?= $row['description'] ?>
+                                            <?php
+                                            $maxWords = 15;
+                                            $words = explode(' ', strip_tags($row['description']));
+                                            if (count($words) > $maxWords) {
+                                                $shortDesc = implode(' ', array_slice($words, 0, $maxWords)) . '...';
+                                            } else {
+                                                $shortDesc = $row['description'];
+                                            }
+                                            ?>
+                                            <p class="card-text small text-muted" style="min-height: 100px;">
+                                                <?= $shortDesc ?>
                                             </p>
                                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                                 <small class="text-muted">Diposting:

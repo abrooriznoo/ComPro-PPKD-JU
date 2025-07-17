@@ -12,11 +12,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/admin">Dashboard</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/lowongan-admin">Lowongan</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        User Management
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="/users">Users</a></li>
+                        <li><a class="dropdown-item" href="/roles">Roles</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/settings">Settings</a>
+                    <a class="nav-link" href="/lowongan-admin">Lowongan</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>

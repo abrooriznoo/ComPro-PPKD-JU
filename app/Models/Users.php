@@ -6,41 +6,11 @@ use CodeIgniter\Model;
 
 class Users extends Model
 {
-    protected $table = 'users';
-    protected $primaryKey = 'id';
-    protected $useAutoIncrement = true;
-    protected $returnType = 'array';
-    protected $useSoftDeletes = false;
-    protected $protectFields = true;
-    protected $allowedFields = [];
+    protected $table = 'users';    // Nama tabel
+    protected $primaryKey = 'id';     // Primary key tabel
 
-    protected bool $allowEmptyInserts = false;
-    protected bool $updateOnlyChanged = true;
+    protected $allowedFields = ['username', 'email', 'password', 'role_id', 'photo', 'created_at', 'updated_at', 'deleted_at', 'is_active']; // Kolom yg boleh diupdate
 
-    protected array $casts = [];
-    protected array $castHandlers = [];
-
-    // Dates
-    protected $useTimestamps = true; // Enable timestamps
-    protected $dateFormat = 'datetime';
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
-    protected $deletedField = 'deleted_at';
-
-    // Validation
-    protected $validationRules = [];
-    protected $validationMessages = [];
-    protected $skipValidation = false;
-    protected $cleanValidationRules = true;
-
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert = [];
-    protected $afterInsert = [];
-    protected $beforeUpdate = [];
-    protected $afterUpdate = [];
-    protected $beforeFind = [];
-    protected $afterFind = [];
-    protected $beforeDelete = [];
-    protected $afterDelete = [];
+    // Jika ingin otomatis mengelola created_at dan updated_at, aktifkan ini:
+    protected $useTimestamps = true;
 }

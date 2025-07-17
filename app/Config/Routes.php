@@ -8,14 +8,38 @@ use CodeIgniter\Router\RouteCollection;
 // $routes->get('/', 'Home::index');
 $routes->get('/', 'Dashboard::index');
 
-$routes->get('admin', 'AdminController::dashboard');
 
-// Lowongan routes
 $routes->get('lowongan', 'LowonganController::index');
-$routes->get('lowongan-admin', 'AdminController::lowongan');
-$routes->get('lowongan/tambah', 'LowonganController::create');
-$routes->post('lowongan/store', 'LowonganController::store');
-$routes->post('lowongan/update/(:num)', 'LowonganController::update/$1');
-$routes->post('lowongan/delete/(:num)', 'LowonganController::delete/$1');
 
+// Admin routes
+$routes->get('login', 'AuthController::index');
+$routes->post('login/action', 'AuthController::doLogin');
+$routes->get('logout', 'AuthController::logout');
 
+$routes->group(
+    '',
+    ['filter' => 'auth'],
+    function ($routes) {
+        // Lowongan routes
+        $routes->get('admin', 'AdminController::dashboard');
+        $routes->get('lowongan-admin', 'AdminController::lowongan');
+        $routes->get('lowongan/tambah', 'LowonganController::create');
+        $routes->post('lowongan/store', 'LowonganController::store');
+        $routes->post('lowongan/update/(:num)', 'LowonganController::update/$1');
+        $routes->post('lowongan/delete/(:num)', 'LowonganController::delete/$1');
+
+        // Roles routes
+        $routes->get('roles', 'RolesController::index');
+        $routes->get('roles/tambah', 'RolesController::create');
+        $routes->post('roles/store', 'RolesController::store');
+        $routes->post('roles/update/(:num)', 'RolesController::update/$1');
+        $routes->post('roles/delete/(:num)', 'RolesController::delete/$1');
+
+        // Users routes
+        $routes->get('users', 'UsersController::index');
+        $routes->get('users/tambah', 'UsersController::create');
+        $routes->post('users/store', 'UsersController::store');
+        $routes->post('users/update/(:num)', 'UsersController::update/$1');
+        $routes->post('users/delete/(:num)', 'UsersController::delete/$1');
+    }
+);

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\Lowongan;
 use CodeIgniter\HTTP\ResponseInterface;
 
 class AdminController extends BaseController
@@ -20,8 +21,8 @@ class AdminController extends BaseController
 
     public function lowongan(): string
     {
-        $db = \Config\Database::connect();
-        $lowongan = $db->table('lowongan')->get()->getResultArray();
+        $modal = new Lowongan();
+        $lowongan = $modal->findAll();
 
         // Logic to display lowongan management
         return view('pages/admin/dashboard', [
