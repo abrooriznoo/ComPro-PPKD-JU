@@ -5,6 +5,15 @@
         margin: 0;
         padding: 0;
     }
+
+    .modal-header.bg-primary {
+        background-color: #0056b3 !important;
+    }
+
+    .modal-content {
+        border-radius: 12px;
+        overflow: hidden;
+    }
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +44,78 @@
             <?php include 'pages/lowongan.php'; ?>
             <!-- / Content -->
         </section>
+
+        <?php foreach ($data as $row): ?>
+            <div class="modal fade" id="detailModal<?= $row['id'] ?>" tabindex="-1"
+                aria-labelledby="detailModalLabel<?= $row['id'] ?>" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title" id="detailModalLabel<?= $row['id'] ?>">
+                                <?= $row['title'] ?>
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <!-- Banner Gambar -->
+                            <div class="text-center mb-3">
+                                <img src="<?= base_url('uploads/' . $row['photo']) ?>" class="img-fluid rounded shadow"
+                                    style="max-height: 300px; object-fit: cover;" alt="Lowongan">
+                            </div>
+
+                            <!-- Informasi Umum -->
+                            <h4 class="text-center fw-bold">
+                                <?= isset($row['company']) ? $row['company'] : 'Hariston Hotel & Suites' ?>
+                            </h4>
+                            <p class="text-center text-muted mb-1">Diposting:
+                                <?= date('d M Y', strtotime($row['created_at'])) ?>
+                            </p>
+                            <p class="text-center text-muted">Diperbarui:
+                                <?= date('d M Y', strtotime($row['updated_at'])) ?>
+                            </p>
+                            <hr>
+
+                            <!-- Deskripsi Pekerjaan -->
+                            <h5 class="fw-bold">Deskripsi Pekerjaan</h5>
+
+                            <!-- Requirements -->
+                            <div class="bg-light p-3 rounded mt-3">
+                                <h6 class="fw-bold">Requirements:</h6>
+                                <ul>
+                                    <?php
+                                    $descPoints = explode("\n", $row['description']);
+                                    foreach ($descPoints as $point) {
+                                        $trimmed = trim($point);
+                                        if (!empty($trimmed)) {
+                                            echo "<li>{$trimmed}</li>";
+                                        }
+                                    }
+                                    ?>
+                                </ul>
+                            </div>
+
+                            <!-- QR & CTA -->
+                            <div class="row mt-4">
+                                <div class="col-md-6 text-center">
+                                    <img src="<?= base_url('uploads/qr-code.png') ?>" alt="QR Code"
+                                        style="max-width: 150px;">
+                                    <p class="small mt-2">Scan untuk melamar</p>
+                                </div>
+                                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                    <a href="#" class="btn btn-primary">
+                                        Lamar Sekarang
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </main>
 
     <footer>
@@ -125,6 +206,28 @@
                     }
                 });
             }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const detailButtons = document.querySelectorAll('.btn-info.text-white');
+            detailButtons.forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
+                    const href = btn.getAttribute('href');
+                    if (href && href.includes('lowongan/details/')) {
+                        e.preventDefault();
+                        const id = href.split('/').pop();
+                        const modal = document.getElementById('detailModal' + id);
+                        if (modal) {
+                            const bsModal = new bootstrap.Modal(modal);
+                            bsModal.show();
+                        } else {
+                            window.location.href = href;
+                        }
+                    }
+                });
+            });
         });
     </script>
 

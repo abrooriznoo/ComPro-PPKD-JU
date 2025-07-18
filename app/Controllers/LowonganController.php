@@ -18,16 +18,6 @@ class LowonganController extends BaseController
         return view('lowongan', ['data' => $data]);
     }
 
-    public function create(): string
-    {
-        $model = new Lowongan();
-
-        // Ambil semua data lowongan
-        $data = $model->findAll();
-
-        return view('pages/lowongan/create', ['data' => $data]);
-    }
-
     public function store(): ResponseInterface
     {
         $model = new Lowongan();
