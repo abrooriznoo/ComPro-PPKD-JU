@@ -13,7 +13,8 @@
                     <a class="nav-link" href="/admin">Dashboard</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         User Management
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="userDropdown">
@@ -23,6 +24,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/lowongan-admin">Lowongan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/majors">Jurusan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/schedules-admin">Jadwal</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>

@@ -54,7 +54,7 @@
     <title>Home - PPKD JAKUT</title>
 </head>
 
-<body style="margin:0;padding:0;">
+< style="margin:0;padding:0;">
     <header>
         <nav>
             <?php include 'inc/header.php'; ?>
@@ -84,6 +84,7 @@
             mirror: false
         });
     </script>
+
 
     <script>
         // Enable dropdown on hover for Bootstrap 5
@@ -155,7 +156,9 @@
                 });
             }
         });
+
     </script>
-</body>
+    
+    </body>
 
 </html>

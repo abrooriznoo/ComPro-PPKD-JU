@@ -40,7 +40,7 @@
                 <li class="nav-item"><a class="nav-link" href="/#tentang" id="nav-tentang">Tentang</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#layanan" id="nav-layanan">Layanan</a></li>
                 <li class="nav-item"><a class="nav-link" href="lowongan" id="nav-lowongan">Lowongan</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" id="nav-jadwal">Jadwal</a></li>
+                <li class="nav-item"><a class="nav-link" href="/schedules" id="nav-jadwal">Jadwal</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="pelatihanDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">

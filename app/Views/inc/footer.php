@@ -11,31 +11,39 @@
                     <p><b>Email : </b>ppkdjakartautara@gmail.com</p>
                 </div>
                 <div class="col-md-2 ms-2">
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Bahasa Inggris Untuk Tenaga Administrasi Profesional</a>
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Pemasangan Instalasi Otomasi Listrik Industri</a>
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Teknisi AC Residential Level 3</a>
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Service Sepeda Motor Injeksi</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Bahasa Inggris Untuk
+                        Tenaga Administrasi Profesional</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Pemasangan Instalasi
+                        Otomasi Listrik Industri</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Teknisi AC Residential
+                        Level 3</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Service Sepeda Motor
+                        Injeksi</a>
                 </div>
                 <div class="col-md-2 ms-2">
                     <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Operator Excavator</a>
                     <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Operator Forklift</a>
                     <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Desainer Grafis Madya</a>
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Teknisi Komputer dan Jaringan</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Teknisi Komputer dan
+                        Jaringan</a>
                     <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Junior Web Developer</a>
                 </div>
                 <div class="col-md-2 ms-2">
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Operator Excavator</a>
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Operator Forklift</a>
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Desainer Grafis Madya</a>
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Teknisi Komputer dan Jaringan</a>
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Junior Web Developer</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Cyber Security</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Junior Android
+                        Developer</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Associate Data
+                        Scientist</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Editor Video</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Data Management Staff</a>
                 </div>
                 <div class="col-md-2 ms-2">
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Operator Excavator</a>
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Operator Forklift</a>
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Desainer Grafis Madya</a>
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Teknisi Komputer dan Jaringan</a>
-                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Junior Web Developer</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Penjahitan Busana</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Perawatan Kecantikan</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Barista</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Penyiapan Layanan Produk
+                        Makanan dan Minuman</a>
+                    <a href="#" class="text-white mb-2 d-block" style="text-decoration: none;">Perhotelan</a>
                 </div>
             </div>
         </div>
@@ -44,11 +52,14 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex flex-column align-items-start">
                         <p class="mb-1">© Copyright <b>PPKD Jakarta Utara</b>. All Rights Reserved</p>
-                        <p class="mb-0">Designed by <a href="https://github.com/Abroorizno" target="_blank"><b>Abroor Rizky</b></a></p>
+                        <p class="mb-0">Designed by <a href="https://github.com/Abroorizno" target="_blank"><b>Abroor
+                                    Rizky</b></a></p>
                     </div>
                     <div>
-                        <a href="#" class="text-white me-1" style="border-radius:10%; padding:6px; background:#222;"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="text-white me-1" style="border-radius:10%; padding:6px; background:#222;"><i class="bi bi-whatsapp"></i></a>
+                        <a href="#" class="text-white me-1" style="border-radius:10%; padding:6px; background:#222;"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white me-1" style="border-radius:10%; padding:6px; background:#222;"><i
+                                class="bi bi-whatsapp"></i></a>
                     </div>
                 </div>
             </div>

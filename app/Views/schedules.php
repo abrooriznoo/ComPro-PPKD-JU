@@ -1,9 +1,39 @@
+<?php
+function toRoman($number)
+{
+    $map = [
+        'M' => 1000,
+        'CM' => 900,
+        'D' => 500,
+        'CD' => 400,
+        'C' => 100,
+        'XC' => 90,
+        'L' => 50,
+        'XL' => 40,
+        'X' => 10,
+        'IX' => 9,
+        'V' => 5,
+        'IV' => 4,
+        'I' => 1
+    ];
+    $return = '';
+    foreach ($map as $roman => $int) {
+        while ($number >= $int) {
+            $return .= $roman;
+            $number -= $int;
+        }
+    }
+    return $return;
+}
+?>
+
 <style>
     html,
     body {
         height: 100%;
         margin: 0;
         padding: 0;
+        background: #f8f9fa;
     }
 </style>
 <!DOCTYPE html>
@@ -17,23 +47,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="icon" href="asset/logo.png" type="image/x-icon">
-
-    <title>Lowongan - PPKD JAKUT</title>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <title>Jadwal - PPKD JAKUT</title>
 </head>
 
-<body style="margin:0;padding:0;">
+<body>
     <header>
         <nav>
             <?php include 'inc/header.php'; ?>
         </nav>
     </header>
 
-    <main class="flex-1" style="margin:0;padding:0;">
-        <!-- AOS CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-        <section data-aos="fade-in" data-aos-once="true" style="overflow-y:auto; overflow-x:hidden;">
-            <?php include 'pages/lowongan.php'; ?>
-            <!-- / Content -->
+    <main class="mt-5" style="margin:0;padding:0;">
+        <section data-aos="fade-in" data-aos-once="true" style="overflow-y:auto; overflow-x:hidden; height: 100vh;">
+            <?php include 'pages/schedules.php'; ?>
         </section>
     </main>
 
@@ -44,8 +71,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-
-    <!-- AOS JS -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init({
@@ -54,10 +79,7 @@
             once: true,
             mirror: false
         });
-    </script>
 
-    <script>
-        // Enable dropdown on hover for Bootstrap 5
         document.querySelectorAll('.nav-item.dropdown').forEach(function (dropdown) {
             dropdown.addEventListener('mouseenter', function () {
                 let menu = dropdown.querySelector('.dropdown-menu');
@@ -73,7 +95,6 @@
             });
         });
 
-        // Bootstrap tab activation (if not already included elsewhere)
         document.addEventListener('DOMContentLoaded', function () {
             var triggerTabList = [].slice.call(document.querySelectorAll('#trainingTab button'));
             triggerTabList.forEach(function (triggerEl) {
@@ -91,9 +112,7 @@
                     });
                 });
             });
-        });
 
-        document.addEventListener('DOMContentLoaded', function () {
             var triggerTabList2 = [].slice.call(document.querySelectorAll('#trainingMTUTab button'));
             triggerTabList2.forEach(function (triggerEl) {
                 triggerEl.addEventListener('click', function (event) {
@@ -127,7 +146,6 @@
             }
         });
     </script>
-
 </body>
 
 </html>

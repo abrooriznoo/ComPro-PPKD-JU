@@ -10,6 +10,7 @@ $routes->get('/', 'Dashboard::index');
 
 
 $routes->get('lowongan', 'LowonganController::index');
+$routes->get('schedules', 'ClassSchedulesController::dashboard');
 
 // Admin routes
 $routes->get('login', 'AuthController::index');
@@ -41,5 +42,19 @@ $routes->group(
         $routes->post('users/store', 'UsersController::store');
         $routes->post('users/update/(:num)', 'UsersController::update/$1');
         $routes->post('users/delete/(:num)', 'UsersController::delete/$1');
+
+        // Majors routes
+        $routes->get('majors', 'MajorsController::index');
+        $routes->get('majors/tambah', 'MajorsController::create');
+        $routes->post('majors/store', 'MajorsController::store');
+        $routes->post('majors/update/(:num)', 'MajorsController::update/$1');
+        $routes->post('majors/delete/(:num)', 'MajorsController::destroy/$1');
+
+        // Schedules routes
+        $routes->get('schedules-admin', 'ClassSchedulesController::index');
+        $routes->get('schedules/tambah', 'ClassSchedulesController::create');
+        $routes->post('schedules/store', 'ClassSchedulesController::store');
+        $routes->post('schedules/update/(:num)', 'ClassSchedulesController::update/$1');
+        $routes->post('schedules/delete/(:num)', 'ClassSchedulesController::destroy/$1');
     }
 );

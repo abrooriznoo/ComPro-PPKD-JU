@@ -15,7 +15,33 @@
             <div style="display: flex; align-items: center;">
                 <i class="fa fa-play-circle-o" aria-hidden="true"
                     style="font-size: 2.5rem; color: rgb(16, 150, 173);"></i>
-                <a href="#" style="margin-left: 8px; text-decoration: none; color: black;">Tonton Video</a>
+                <a href="#" id="openVideoModal" style="margin-left: 8px; text-decoration: none; color: black;"
+                    data-bs-toggle="modal" data-bs-target="#videoModal">Tonton
+                    Video</a>
+
+                <!-- Modal -->
+                <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel"
+                    aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content bg-black">
+                            <div class="modal-header border-0">
+                                <h5 class="modal-title text-white" id="videoModalLabel">Video Profil</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <div class="ratio ratio-16x9">
+                                    <iframe id="youtubeVideo"
+                                        src="https://www.youtube.com/embed/CR6jfKSeXT4?enablejsapi=1&origin=<?= $_SERVER['HTTP_HOST'] ?>"
+                                        title="Video Profil" frameborder="0"
+                                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
