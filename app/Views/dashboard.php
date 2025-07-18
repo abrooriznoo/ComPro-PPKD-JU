@@ -70,6 +70,37 @@
         </section>
     </main>
 
+
+    <!-- Floating "Back to Top" Button with Bootstrap -->
+    <button type="button" class="btn btn-info rounded-circle shadow d-flex align-items-center justify-content-center"
+        id="backToTopBtn" title="Kembali ke atas"
+        style="position: fixed; bottom: 100px; right: 41px; z-index: 999; width: 48px; height: 48px; display: none; font-size: 24px; animation: floatY 2s infinite;">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <a href="#" class="btn btn-light rounded-circle shadow d-flex align-items-center justify-content-center"
+        id="backToTopBtn2" title="Kembali ke atas"
+        style="position: fixed; bottom: 32px; right: 32px; z-index: 999; width: 60px; height: 60px; display: none; font-size: 28px; color: #1096ad; background-color: #fff; border: 2px solid #1096ad;">
+        <i class="bi bi-chat-quote"></i>
+    </a>
+
+    <script>
+        // Show/hide button on scroll
+        window.addEventListener('scroll', function() {
+            var btn = document.getElementById('backToTopBtn');
+            if (window.scrollY > 200) {
+                btn.style.display = 'flex';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+
+        // Scroll to top on click
+        document.getElementById('backToTopBtn').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
@@ -158,7 +189,7 @@
         });
 
     </script>
-    
+
     </body>
 
 </html>
