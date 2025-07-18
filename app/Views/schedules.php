@@ -58,10 +58,10 @@ function toRoman($number)
         </nav>
     </header>
 
-    <main style="margin-top: 80px;">
+    <main style="margin-top: 80px; padding: 0;">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-                <h4 class="ms-5">Jadwal Program Pelatihan</h4>
+                <h4 class="mb-3 ms-5">Jadwal Program Pelatihan</h4>
                 <p class="me-5"><a href="/" style="text-decoration: none; color: black;">Home</a> / <a href="/schedules"
                         class="text-info" style="text-decoration: none;">Jadwal Pelatihan</a></p>
             </div>
