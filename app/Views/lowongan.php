@@ -118,6 +118,29 @@
         <?php endforeach; ?>
     </main>
 
+    <a href="#" class="btn btn-light rounded-circle shadow d-flex align-items-center justify-content-center"
+        id="backToTopBtn2" title="Kembali ke atas"
+        style="position: fixed; bottom: 32px; right: 32px; z-index: 999; width: 60px; height: 60px; display: none; font-size: 28px; color: #1096ad; background-color: #fff; border: 2px solid #1096ad;">
+        <i class="bi bi-chat-quote"></i>
+    </a>
+
+    <script>
+        // Show/hide button on scroll
+        window.addEventListener('scroll', function () {
+            var btn = document.getElementById('backToTopBtn');
+            if (window.scrollY > 200) {
+                btn.style.display = 'flex';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+
+        // Scroll to top on click
+        document.getElementById('backToTopBtn').addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
     <footer>
         <?php include 'inc/footer.php'; ?>
     </footer>

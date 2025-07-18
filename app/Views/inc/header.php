@@ -65,7 +65,7 @@
                 </li>
             </ul>
             <div class="d-flex ms-auto">
-                <button type="button" class="btn btn-info text-white mx-2">Yuk Mulai</button>
+                <a href="/#layanan" class="btn btn-info text-white mx-2">Yuk Mulai</a>
             </div>
         </div>
     </div>

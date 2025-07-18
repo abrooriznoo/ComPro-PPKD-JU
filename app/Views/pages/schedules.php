@@ -1,7 +1,6 @@
 <div class="container-fluid mt-5 px-0">
     <div class="card-body">
         <div class="container">
-            <h4 class="mb-4">Jadwal Program Pelatihan</h4>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover align-middle">
                     <thead class="table-light">

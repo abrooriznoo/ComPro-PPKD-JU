@@ -58,7 +58,14 @@ function toRoman($number)
         </nav>
     </header>
 
-    <main class="mt-5" style="margin:0;padding:0;">
+    <main style="margin-top: 80px;">
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="ms-5">Jadwal Program Pelatihan</h4>
+                <p class="me-5"><a href="/" style="text-decoration: none; color: black;">Home</a> / <a href="/schedules"
+                        class="text-info" style="text-decoration: none;">Jadwal Pelatihan</a></p>
+            </div>
+        </div>
         <section data-aos="fade-in" data-aos-once="true" style="overflow-y:auto; overflow-x:hidden; height: 100vh;">
             <?php include 'pages/schedules.php'; ?>
         </section>

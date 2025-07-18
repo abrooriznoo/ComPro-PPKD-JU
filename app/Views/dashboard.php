@@ -70,6 +70,30 @@
         </section>
     </main>
 
+    <!-- Modal YouTube -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true"
+        data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-black">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-info" id="videoModalLabel">Video Profil</h5>
+                    <button type="button" class="btn-close btn-close-black" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="youtubeVideo"
+                            src="https://www.youtube.com/embed/CR6jfKSeXT4?enablejsapi=1&origin=<?= $_SERVER['HTTP_HOST'] ?>&modestbranding=1&showinfo=0&rel=0&controls=0"
+                            title="Video Profil" frameborder="0" style="border:0;"
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Floating "Back to Top" Button with Bootstrap -->
     <button type="button" class="btn btn-info rounded-circle shadow d-flex align-items-center justify-content-center"
