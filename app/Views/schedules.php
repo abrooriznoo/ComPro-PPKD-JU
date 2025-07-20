@@ -58,7 +58,7 @@ function toRoman($number)
         </nav>
     </header>
 
-    <main style="margin-top: 80px; padding: 0;">
+    <main style="margin-top: 80px; padding: 0;" data-aos="fade-in" data-aos-once="true">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h4 class="mb-3 ms-5">Jadwal Program Pelatihan</h4>
@@ -87,14 +87,14 @@ function toRoman($number)
             mirror: false
         });
 
-        document.querySelectorAll('.nav-item.dropdown').forEach(function (dropdown) {
-            dropdown.addEventListener('mouseenter', function () {
+        document.querySelectorAll('.nav-item.dropdown').forEach(function(dropdown) {
+            dropdown.addEventListener('mouseenter', function() {
                 let menu = dropdown.querySelector('.dropdown-menu');
                 let toggle = dropdown.querySelector('.dropdown-toggle');
                 menu.classList.add('show');
                 toggle.setAttribute('aria-expanded', 'true');
             });
-            dropdown.addEventListener('mouseleave', function () {
+            dropdown.addEventListener('mouseleave', function() {
                 let menu = dropdown.querySelector('.dropdown-menu');
                 let toggle = dropdown.querySelector('.dropdown-toggle');
                 menu.classList.remove('show');
@@ -102,11 +102,11 @@ function toRoman($number)
             });
         });
 
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             var triggerTabList = [].slice.call(document.querySelectorAll('#trainingTab button'));
-            triggerTabList.forEach(function (triggerEl) {
-                triggerEl.addEventListener('click', function (event) {
-                    triggerTabList.forEach(function (el) {
+            triggerTabList.forEach(function(triggerEl) {
+                triggerEl.addEventListener('click', function(event) {
+                    triggerTabList.forEach(function(el) {
                         if (el === event.currentTarget) {
                             el.classList.add('active');
                             el.style.background = '#1096ad';
@@ -121,9 +121,9 @@ function toRoman($number)
             });
 
             var triggerTabList2 = [].slice.call(document.querySelectorAll('#trainingMTUTab button'));
-            triggerTabList2.forEach(function (triggerEl) {
-                triggerEl.addEventListener('click', function (event) {
-                    triggerTabList2.forEach(function (el) {
+            triggerTabList2.forEach(function(triggerEl) {
+                triggerEl.addEventListener('click', function(event) {
+                    triggerTabList2.forEach(function(el) {
                         if (el === event.currentTarget) {
                             el.classList.add('active');
                             el.style.background = '#1096ad';
@@ -138,12 +138,12 @@ function toRoman($number)
             });
         });
 
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             var navbar = document.querySelector('.navbar');
             // Tambahkan transisi pada box-shadow
             if (navbar) {
                 navbar.style.transition = "box-shadow 0.5s cubic-bezier(.25,.8,.25,1)";
-                window.addEventListener('scroll', function () {
+                window.addEventListener('scroll', function() {
                     if (window.scrollY > 0) {
                         navbar.classList.add('shadow');
                     } else {

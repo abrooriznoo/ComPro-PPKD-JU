@@ -27,7 +27,7 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #fff;">
     <div class="container-fluid">
         <div class="d-flex align-items-center gap-3">
-            <img src="asset/logo.png" alt="" width="50px" height="50px">
+            <img src="../../asset/logo.png" alt="" width="50px" height="50px">
             <h2 class="mt-2"><a class="navbar-brand" href="#">PPKD-JAKUT</a></h2>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -57,9 +57,31 @@
                         Pendaftaran
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="pendaftaranDropdown">
-                        <li><a class="dropdown-item" href="https://ppkdju.com/pendaftaran">Regular</a></li>
-                        <li><a class="dropdown-item" href="https://ppkdju.com/pendaftaran-mtu">Mobile Training Unit
-                                (MTU)</a></li>
+                        <?php
+                        $currentUrl = $_SERVER['REQUEST_URI'];
+                        $regisUrl = '/registration/regis-reg';
+
+                        if ($currentUrl !== $regisUrl) {
+                            // Tampilkan link jika belum di halaman ini
+                            echo '<li><a class="dropdown-item" href="registration/regis-reg" id="regis-reg-link">Regular</a></li>';
+                        } else {
+                            // Jika sudah di halaman ini, reload saja
+                            echo '<li><a class="dropdown-item" href="registration/regis-reg" onclick="location.reload(); return false;" id="regis-reg-link">Regular</a></li>';
+                        }
+                        ?>
+                        <?php
+                        $currentUrl = $_SERVER['REQUEST_URI'];
+                        $regisRegUrl = '/registration/regis-reg';
+                        $regisMtuUrl = '/registration/regis-mtu';
+
+                        if ($currentUrl !== $regisMtuUrl) {
+                            // Tampilkan link jika belum di halaman ini
+                            echo '<li><a class="dropdown-item" href="registration/regis-mtu" id="regis-mtu-link">Mobile Training Unit</a></li>';
+                        } else {
+                            // Jika sudah di halaman ini, reload saja
+                            echo '<li><a class="dropdown-item" href="registration/regis-mtu" onclick="location.reload(); return false;" id="regis-mtu-link">Mobile Training Unit</a></li>';
+                        }
+                        ?>
                         <li><a class="dropdown-item" href="#">Kolaborasi Pelatihan</a></li>
                     </ul>
                 </li>
@@ -74,9 +96,9 @@
 <script>
     // Tambahkan class active pada nav-link sesuai lokasi/section
     // Highlight nav-link based on click and current page URL
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(function (link) {
-        link.addEventListener('click', function () {
-            document.querySelectorAll('.navbar-nav .nav-link').forEach(function (nav) {
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+            document.querySelectorAll('.navbar-nav .nav-link').forEach(function(nav) {
                 nav.classList.remove('active');
             });
             this.classList.add('active');

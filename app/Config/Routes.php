@@ -17,6 +17,12 @@ $routes->get('login', 'AuthController::index');
 $routes->post('login/action', 'AuthController::doLogin');
 $routes->get('logout', 'AuthController::logout');
 
+// Registration routes
+$routes->post('registrasi/storeReg', 'RegistrationController::storeReg');
+$routes->post('registrasi/storeMTU', 'RegistrationController::storeMTU');
+$routes->get('registration/regis-reg', 'RegistrationController::regisReg');
+$routes->get('registration/regis-mtu', 'RegistrationController::regisMTU');
+
 $routes->group(
     '',
     ['filter' => 'auth'],
@@ -56,5 +62,8 @@ $routes->group(
         $routes->post('schedules/store', 'ClassSchedulesController::store');
         $routes->post('schedules/update/(:num)', 'ClassSchedulesController::update/$1');
         $routes->post('schedules/delete/(:num)', 'ClassSchedulesController::destroy/$1');
+
+        // Registrations routes
+        $routes->get('registration/data', 'RegistrationController::data');
     }
 );
