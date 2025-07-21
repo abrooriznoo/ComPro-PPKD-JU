@@ -8,8 +8,28 @@
                         <h1 class="fw-light">Info Lowongan Pekerjaan</h1>
                     </div>
                     <div class="container my-5">
+                        <!-- Form Pencarian -->
+                        <form method="get" class="mb-4">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4 mb-2">
+                                    <input type="text" name="search" class="form-control" placeholder="Cari judul atau perusahaan..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
+                                </div>
+                                <div class="col-md-2 mb-2">
+                                    <button type="submit" class="btn btn-primary w-100">Cari</button>
+                                </div>
+                            </div>
+                        </form>
+
                         <div class="row justify-content-center">
-                            <?php foreach ($data as $row): ?>
+                            <?php
+                            $search = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
+                            foreach ($data as $row):
+                                $title = strtolower($row['title']);
+                                $company = strtolower(isset($row['company']) ? $row['company'] : 'Hariston Hotel & Suites');
+                                if ($search && strpos($title, $search) === false && strpos($company, $search) === false) {
+                                    continue;
+                                }
+                            ?>
                                 <div class="col-md-3 mb-4 d-flex">
                                     <div class="card shadow-sm border-0 w-100" style="border-radius: 10px;">
                                         <img src="<?= base_url('uploads/' . $row['photo']) ?>" class="card-img-top"
@@ -17,8 +37,7 @@
                                             style="height: 220px; object-fit: cover; background-color: #f9f9f9;">
                                         <div class="card-body d-flex flex-column">
                                             <h5 class="card-title mb-1"><?= $row['title'] ?></h5>
-                                            <small
-                                                class="text-muted mb-2"><?= isset($row['company']) ? $row['company'] : 'Hariston Hotel & Suites' ?></small>
+                                            <small class="text-muted mb-2"><?= isset($row['company']) ? $row['company'] : 'Hariston Hotel & Suites' ?></small>
                                             <?php
                                             $maxWords = 15;
                                             $words = explode(' ', strip_tags($row['description']));
