@@ -39,7 +39,7 @@
                 <li class="nav-item"><a class="nav-link" href="/" id="nav-home">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#tentang" id="nav-tentang">Tentang</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#layanan" id="nav-layanan">Layanan</a></li>
-                <li class="nav-item"><a class="nav-link" href="lowongan" id="nav-lowongan">Lowongan</a></li>
+                <li class="nav-item"><a class="nav-link" href="/lowongan" id="nav-lowongan">Lowongan</a></li>
                 <li class="nav-item"><a class="nav-link" href="/schedules" id="nav-jadwal">Jadwal</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="pelatihanDropdown" role="button"
@@ -96,9 +96,9 @@
 <script>
     // Tambahkan class active pada nav-link sesuai lokasi/section
     // Highlight nav-link based on click and current page URL
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(function(link) {
-        link.addEventListener('click', function() {
-            document.querySelectorAll('.navbar-nav .nav-link').forEach(function(nav) {
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+            document.querySelectorAll('.navbar-nav .nav-link').forEach(function (nav) {
                 nav.classList.remove('active');
             });
             this.classList.add('active');

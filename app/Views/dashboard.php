@@ -94,7 +94,6 @@
         </div>
     </div>
 
-
     <!-- Floating "Back to Top" Button with Bootstrap -->
     <button type="button" class="btn btn-info rounded-circle shadow d-flex align-items-center justify-content-center"
         id="backToTopBtn" title="Kembali ke atas"
@@ -108,9 +107,13 @@
         <i class="bi bi-chat-quote"></i>
     </a>
 
+    <footer>
+        <?php include APPPATH . 'Views/inc/footer.php'; ?>
+    </footer>
+
     <script>
         // Show/hide button on scroll
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             var btn = document.getElementById('backToTopBtn');
             if (window.scrollY > 200) {
                 btn.style.display = 'flex';
@@ -120,7 +123,7 @@
         });
 
         // Scroll to top on click
-        document.getElementById('backToTopBtn').addEventListener('click', function() {
+        document.getElementById('backToTopBtn').addEventListener('click', function () {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
@@ -146,14 +149,14 @@
 
     <script>
         // Enable dropdown on hover for Bootstrap 5
-        document.querySelectorAll('.nav-item.dropdown').forEach(function(dropdown) {
-            dropdown.addEventListener('mouseenter', function() {
+        document.querySelectorAll('.nav-item.dropdown').forEach(function (dropdown) {
+            dropdown.addEventListener('mouseenter', function () {
                 let menu = dropdown.querySelector('.dropdown-menu');
                 let toggle = dropdown.querySelector('.dropdown-toggle');
                 menu.classList.add('show');
                 toggle.setAttribute('aria-expanded', 'true');
             });
-            dropdown.addEventListener('mouseleave', function() {
+            dropdown.addEventListener('mouseleave', function () {
                 let menu = dropdown.querySelector('.dropdown-menu');
                 let toggle = dropdown.querySelector('.dropdown-toggle');
                 menu.classList.remove('show');
@@ -162,11 +165,11 @@
         });
 
         // Bootstrap tab activation (if not already included elsewhere)
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var triggerTabList = [].slice.call(document.querySelectorAll('#trainingTab button'));
-            triggerTabList.forEach(function(triggerEl) {
-                triggerEl.addEventListener('click', function(event) {
-                    triggerTabList.forEach(function(el) {
+            triggerTabList.forEach(function (triggerEl) {
+                triggerEl.addEventListener('click', function (event) {
+                    triggerTabList.forEach(function (el) {
                         if (el === event.currentTarget) {
                             el.classList.add('active');
                             el.style.background = '#1096ad';
@@ -181,11 +184,11 @@
             });
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var triggerTabList2 = [].slice.call(document.querySelectorAll('#trainingMTUTab button'));
-            triggerTabList2.forEach(function(triggerEl) {
-                triggerEl.addEventListener('click', function(event) {
-                    triggerTabList2.forEach(function(el) {
+            triggerTabList2.forEach(function (triggerEl) {
+                triggerEl.addEventListener('click', function (event) {
+                    triggerTabList2.forEach(function (el) {
                         if (el === event.currentTarget) {
                             el.classList.add('active');
                             el.style.background = '#1096ad';
@@ -200,12 +203,12 @@
             });
         });
 
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             var navbar = document.querySelector('.navbar');
             // Tambahkan transisi pada box-shadow
             if (navbar) {
                 navbar.style.transition = "box-shadow 0.5s cubic-bezier(.25,.8,.25,1)";
-                window.addEventListener('scroll', function() {
+                window.addEventListener('scroll', function () {
                     if (window.scrollY > 0) {
                         navbar.classList.add('shadow');
                     } else {

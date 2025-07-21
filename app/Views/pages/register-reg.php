@@ -131,9 +131,11 @@
                 <div class="mb-3">
                     <label>Minat Pelatihan:</label>
                     <select name="major_id" id="major_id" class="form-control">
+                        <option value="">------</option>
                         <?php foreach ($majors as $class): ?>
-                            <option value="">------</option>
-                            <option value="<?= $class['id'] ?>"><?= $class['nama_jurusan'] ?></option>
+                            <option value="<?= htmlspecialchars($class['id']) ?>">
+                                <?= htmlspecialchars($class['nama_jurusan']) ?>
+                            </option>
                         <?php endforeach; ?>
                     </select>
                 </div>

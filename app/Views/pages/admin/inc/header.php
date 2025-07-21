@@ -31,6 +31,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/schedules-admin">Jadwal</a>
                 </li>
+                <li class="nav-item dropdown dropdown-regis">
+                    <a class="nav-link dropdown-toggle" href="#" id="regisDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Registration Data
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-regis" aria-labelledby="regisDropdown">
+                        <li><a class="dropdown-item" href="/registration/data-reg">Regular</a></li>
+                        <li><a class="dropdown-item" href="/roles">MTU</a></li>
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>

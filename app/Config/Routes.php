@@ -64,6 +64,10 @@ $routes->group(
         $routes->post('schedules/delete/(:num)', 'ClassSchedulesController::destroy/$1');
 
         // Registrations routes
-        $routes->get('registration/data', 'RegistrationController::data');
+        $routes->get('registration/data-reg', 'RegistrationController::dataReg');
+        $routes->get('registration/data-mtu', 'RegistrationController::dataMTU');
+        $routes->post('registration/data-reg/delete/(:num)', 'RegistrationController::deleteReg/$1');
+        $routes->post('registration/data-mtu/delete/(:num)', 'RegistrationController::deleteMTU/$1');
+        $routes->get('registration/download-zip/(:segment)', 'RegistrationController::download_zip/$1');
     }
 );

@@ -34,7 +34,7 @@ class RegistrationController extends BaseController
         // return view('registration', ['majors' => $majors]);
     }
 
-    public function data()
+    public function dataReg()
     {
         $registrationsModel = new Registrations();
         $data = $registrationsModel->findAll();
@@ -43,7 +43,7 @@ class RegistrationController extends BaseController
         $majors = $majorsModel->findAll();
 
         return view('pages/admin/dashboard', [
-            'page' => 'registrations',
+            'page' => 'data_reg',
             'majors' => $majors,
             'data' => $data
         ]);
@@ -95,7 +95,7 @@ class RegistrationController extends BaseController
             $id = $registrationsModel->getInsertID();
             $nama = $data['nama_lengkap'];
             $namaSanitized = strtolower(preg_replace('/[^a-zA-Z0-9]/', '-', $nama));
-            $folderName = WRITEPATH . "uploads/data-regist/reg/{$namaSanitized}-data-{$id}";
+            $folderName = FCPATH . "uploads/data-regist/reg/{$namaSanitized}-data-{$id}";
 
             if (!is_dir($folderName)) {
                 mkdir($folderName, 0775, true);
@@ -168,7 +168,7 @@ class RegistrationController extends BaseController
             $id = $registrationsModel->getInsertID();
             $nama = $data['nama_lengkap'];
             $namaSanitized = strtolower(preg_replace('/[^a-zA-Z0-9]/', '-', $nama));
-            $folderName = WRITEPATH . "uploads/data-regist/mtu/{$namaSanitized}-data-{$id}";
+            $folderName = FCPATH . "uploads/data-regist/mtu/{$namaSanitized}-data-{$id}";
 
             if (!is_dir($folderName)) {
                 mkdir($folderName, 0775, true);
@@ -218,7 +218,45 @@ class RegistrationController extends BaseController
         return view('registration_detail', ['registration' => $registration]);
     }
 
-    public function delete($id)
+    public function download_zip($id)
+    {
+        $basePath = FCPATH . 'uploads/data-regist/reg/';
+        $pattern = $basePath . "*-data-$id";
+
+        $matchedFolders = glob($pattern);
+        if (!$matchedFolders || !is_dir($matchedFolders[0])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException("Folder tidak ditemukan");
+        }
+
+        $folderPath = $matchedFolders[0];
+        $folderName = basename($folderPath);
+
+        $zipName = "dokumen_id={$id}.zip";
+        $downloadFolder = WRITEPATH . 'downloaded_data/';
+        if (!is_dir($downloadFolder)) {
+            mkdir($downloadFolder, 0775, true);
+        }
+        $zipPath = $downloadFolder . $zipName;  // ZIP disimpan sementara di folder downloaded_data
+
+        $zip = new \ZipArchive();
+        if ($zip->open($zipPath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) !== TRUE) {
+            throw new \RuntimeException("Tidak bisa membuat file ZIP");
+        }
+
+        $files = glob($folderPath . '/*');
+        foreach ($files as $file) {
+            if (is_file($file)) {
+                $zip->addFile($file, $folderName . '/' . basename($file));
+            }
+        }
+
+        $zip->close();
+
+        return $this->response->download($zipPath, null)->setFileName($zipName);
+    }
+
+
+    public function deleteReg($id)
     {
         $registrationsModel = new Registrations();
         $registration = $registrationsModel->find($id);

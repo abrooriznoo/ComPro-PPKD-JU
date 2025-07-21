@@ -862,4 +862,3 @@
     </div>
 </section>
 
-<?php include APPPATH . 'Views/inc/footer.php'; ?>
