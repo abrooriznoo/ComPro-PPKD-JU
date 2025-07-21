@@ -28,7 +28,7 @@
     <div class="container-fluid">
         <div class="d-flex align-items-center gap-3">
             <img src="../../asset/logo.png" alt="" width="50px" height="50px">
-            <h2 class="mt-2"><a class="navbar-brand" href="#">PPKD-JAKUT</a></h2>
+            <h2 class="mt-2"><a class="navbar-brand" href="/">PPKD-JAKUT</a></h2>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
