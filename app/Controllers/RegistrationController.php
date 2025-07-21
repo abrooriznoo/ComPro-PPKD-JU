@@ -49,6 +49,21 @@ class RegistrationController extends BaseController
         ]);
     }
 
+    public function dataMTU()
+    {
+        $registrationsModel = new RegistrationsMTU();
+        $data = $registrationsModel->findAll();
+
+        $majorsModel = new Majors();
+        $majors = $majorsModel->findAll();
+
+        return view('pages/admin/dashboard', [
+            'page' => 'data_mtu',
+            'majors' => $majors,
+            'data' => $data
+        ]);
+    }
+
     public function storeReg()
     {
         // 1. Validasi CAPTCHA
@@ -232,7 +247,7 @@ class RegistrationController extends BaseController
         $folderName = basename($folderPath);
 
         $zipName = "dokumen_id={$id}.zip";
-        $downloadFolder = WRITEPATH . 'downloaded_data/';
+        $downloadFolder = WRITEPATH . 'downloaded_data/reg/';
         if (!is_dir($downloadFolder)) {
             mkdir($downloadFolder, 0775, true);
         }
@@ -245,6 +260,44 @@ class RegistrationController extends BaseController
 
         $files = glob($folderPath . '/*');
         foreach ($files as $file) {
+            if (is_file($file)) {
+                $zip->addFile($file, $folderName . '/' . basename($file));
+            }
+        }
+
+        $zip->close();
+
+        return $this->response->download($zipPath, null)->setFileName($zipName);
+    }
+
+    public function download_zip_mtu($id)
+    {
+        $basePath = FCPATH . 'uploads/data-regist/mtu/';
+        $pattern = $basePath . "*-data-$id";
+
+        $matchedFolders = glob($pattern);
+        if (!$matchedFolders || !is_dir($matchedFolders[0])) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException("Folder tidak ditemukan");
+        }
+
+        $folderPath = $matchedFolders[0];
+        $folderName = basename($folderPath);
+
+        $zipName = "dokumen_mtu_id={$id}.zip";
+        $downloadFolder = WRITEPATH . 'downloaded_data/mtu/';
+        if (!is_dir($downloadFolder)) {
+            mkdir($downloadFolder, 0775, true);
+        }
+        $zipPath = $downloadFolder . $zipName;
+
+        $zip = new \ZipArchive();
+        if ($zip->open($zipPath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) !== TRUE) {
+            throw new \RuntimeException("Tidak bisa membuat file ZIP");
+        }
+
+        // Hanya surat permohonan
+        $suratPermohonan = glob($folderPath . '/*surat-permohonan*');
+        foreach ($suratPermohonan as $file) {
             if (is_file($file)) {
                 $zip->addFile($file, $folderName . '/' . basename($file));
             }
@@ -270,12 +323,35 @@ class RegistrationController extends BaseController
 
         // Hapus folder terkait
         $namaSanitized = strtolower(preg_replace('/[^a-zA-Z0-9]/', '-', $registration['nama_lengkap']));
-        $folderName = WRITEPATH . "uploads/data-regist/{$namaSanitized}-data-{$id}";
+        $folderName = FCPATH . 'uploads/data-regist/reg/{$namaSanitized}-data-{$id}';
         if (is_dir($folderName)) {
             delete_files($folderName, true);
             rmdir($folderName);
         }
 
-        return redirect()->to('/')->with('success', 'Data berhasil dihapus.');
+        return redirect()->to('/registration/data-reg')->with('success', 'Data berhasil dihapus.');
+    }
+
+    public function deleteMTU($id)
+    {
+        $registrationsModel = new RegistrationsMTU();
+        $registration = $registrationsModel->find($id);
+
+        if (!$registration) {
+            return redirect()->back()->with('error', 'Data tidak ditemukan.');
+        }
+
+        // Hapus data dari database
+        $registrationsModel->delete($id);
+
+        // Hapus folder terkait
+        $namaSanitized = strtolower(preg_replace('/[^a-zA-Z0-9]/', '-', $registration['nama_lengkap']));
+        $folderName = FCPATH . 'uploads/data-regist/mtu/{$namaSanitized}-data-{$id}';
+        if (is_dir($folderName)) {
+            delete_files($folderName, true);
+            rmdir($folderName);
+        }
+
+        return redirect()->to('/registration/data-mtu')->with('success', 'Data berhasil dihapus.');
     }
 }

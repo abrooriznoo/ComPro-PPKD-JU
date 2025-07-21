@@ -7,7 +7,8 @@
                 <p>Pendaftaran MTU dilakukan secara kolektif dengan mengajukan surat permohonan.
                     Format surat permohonan dapat diunduh :</p>
                 <div class="d-flex mb-4">
-                    <a href="../../asset/doc/SuratPermohonanMTU.docx" class="btn btn-info text-white me-2">Unduh Surat Permohonan</a>
+                    <a href="../../asset/doc/SuratPermohonanMTU.docx" class="btn btn-info text-white me-2">Unduh Surat
+                        Permohonan</a>
                 </div>
                 <div class="d-flex align-items-start mb-3">
                     <p>Pelaksanaan Pelatihan akan ditetapkan setelah survey lokasi pelatihan</p>
@@ -58,9 +59,11 @@
                 <div class="mb-3">
                     <label>Minat Pelatihan:</label>
                     <select name="major_id" id="major_id" class="form-control">
+                        <option value="">------</option>
                         <?php foreach ($majors as $class): ?>
-                            <option value="">------</option>
-                            <option value="<?= $class['id'] ?>"><?= $class['nama_jurusan'] ?></option>
+                            <option value="<?= htmlspecialchars($class['id']) ?>">
+                                <?= htmlspecialchars($class['nama_jurusan']) ?>
+                            </option>
                         <?php endforeach; ?>
                     </select>
                 </div>

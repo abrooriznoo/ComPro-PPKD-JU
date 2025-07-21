@@ -97,6 +97,20 @@
             });
         });
     </script>
+
+    <?php if (session()->getFlashdata('success')): ?>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: '<?= session()->getFlashdata('success'); ?>',
+                    confirmButtonColor: '#1096ad'
+                });
+            });
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>

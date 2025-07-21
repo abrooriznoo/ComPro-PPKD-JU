@@ -69,5 +69,7 @@ $routes->group(
         $routes->post('registration/data-reg/delete/(:num)', 'RegistrationController::deleteReg/$1');
         $routes->post('registration/data-mtu/delete/(:num)', 'RegistrationController::deleteMTU/$1');
         $routes->get('registration/download-zip/(:segment)', 'RegistrationController::download_zip/$1');
+        $routes->get('registration/download-zip-mtu/(:segment)', 'RegistrationController::download_zip_mtu/$1');
+
     }
 );

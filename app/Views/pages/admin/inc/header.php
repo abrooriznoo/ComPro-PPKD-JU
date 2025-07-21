@@ -38,7 +38,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-regis" aria-labelledby="regisDropdown">
                         <li><a class="dropdown-item" href="/registration/data-reg">Regular</a></li>
-                        <li><a class="dropdown-item" href="/roles">MTU</a></li>
+                        <li><a class="dropdown-item" href="/registration/data-mtu">MTU</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

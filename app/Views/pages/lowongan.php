@@ -34,10 +34,8 @@
                                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                                 <small class="text-muted">Diposting:
                                                     <?= date('d M Y', strtotime($row['created_at'])) ?></small>
-                                                <button type="button"
-                                                    class="btn btn-sm btn-info text-white"
-                                                    data-bs-toggle="modal"
-                                                    data-bs-target="#detailModal<?= $row['id'] ?>">
+                                                <button type="button" class="btn btn-sm btn-info text-white"
+                                                    data-bs-toggle="modal" data-bs-target="#detailModal<?= $row['id'] ?>">
                                                     Detail
                                                 </button>
                                             </div>

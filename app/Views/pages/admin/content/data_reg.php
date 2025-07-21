@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
-    <h2 class="mb-0">Data Registrasi Peserta</h2>
+    <h2 class="mb-0">Data Registrasi Peserta Regular</h2>
 </div>
 
 <table class="table table-bordered table-hover table-striped">
