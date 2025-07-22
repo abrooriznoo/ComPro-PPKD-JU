@@ -11,7 +11,7 @@
             <p>Tingkatkan Kompetensi mu Untuk Raih Karir yang Kamu Inginkan, in a way. <b>IT'S FREE!</b></p>
         </div>
         <div class="d-flex gap-3 mt-3">
-            <button type="button" class="btn btn-info text-white">Mulai</button>
+            <a href="#layanan" class="btn btn-info text-white">Mulai</a>
             <div style="display: flex; align-items: center;">
                 <i class="fa fa-play-circle-o" aria-hidden="true"
                     style="font-size: 2.5rem; color: rgb(16, 150, 173);"></i>
@@ -721,7 +721,7 @@
                                             Pendaftaran kolektif tersebut diajukan oleh perwakilan pemohon pelatihan
                                             dengan mengajukan surat permohonan. Contoh format surat permohonan pelatihan
                                             MTU pada link berikut :</p>
-                                        <a href="asset/doc/SuratPermohonanMTU.docx" class="btn btn-info mb-3"
+                                        <a href="asset/doc/SuratPermohonanMTU.docx" class="btn btn-info mb-3 text-white"
                                             download>Unduh Format Surat Permohonan</a>
                                     </div>
                                     <div class="col-4 d-flex justify-content-center align-items-center">
@@ -861,4 +861,3 @@
         </div>
     </div>
 </section>
-

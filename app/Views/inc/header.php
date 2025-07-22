@@ -47,8 +47,8 @@
                         Pelatihan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="pelatihanDropdown">
-                        <li><a class="dropdown-item" href="https://ppkdju.com/regular">Regular</a></li>
-                        <li><a class="dropdown-item" href="https://ppkdju.com/mtu">Mobile Training Unit (MTU)</a></li>
+                        <li><a class="dropdown-item" href="pelatihan-regular">Regular</a></li>
+                        <li><a class="dropdown-item" href="pelatihan-mtu">Mobile Training Unit (MTU)</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

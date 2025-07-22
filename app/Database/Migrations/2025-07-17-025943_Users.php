@@ -15,11 +15,11 @@ class Users extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            // 'role_id' => [
-            //     'type' => 'INT',
-            //     'constraint' => 11,
-            //     'unsigned' => true,
-            // ],
+            'role_id' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+            ],
             'username' => [
                 'type' => 'VARCHAR',
                 'constraint' => 100,

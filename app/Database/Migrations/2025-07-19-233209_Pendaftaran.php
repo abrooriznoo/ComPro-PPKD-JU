@@ -138,7 +138,7 @@ class Pendaftaran extends Migration
 
     public function down()
     {
-        $this->forge->dropForeignKey('pendaftaran', 'pendaftaran_major_id_foreign');
+        // $this->forge->dropForeignKey('pendaftaran', 'pendaftaran_major_id_foreign');
         $this->forge->dropTable('pendaftaran');
     }
 }

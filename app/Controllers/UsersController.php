@@ -33,7 +33,7 @@ class UsersController extends BaseController
             'username' => $this->request->getPost('name'),
             'email' => $this->request->getPost('email'),
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-            'role_id' => $this->request->getPost('role'),
+            'role_id' => $this->request->getPost('role') ?: 1, // Default to role ID 1 if not provided
             'is_active' => 1, // Default to active
             'created_at' => date('Y-m-d H:i:s'),
         ];
@@ -80,7 +80,7 @@ class UsersController extends BaseController
             $photoName = $photo->getRandomName();
             // Hapus foto lama jika ada dan bukan default
             if (!empty($oldUser['photo']) && file_exists(ROOTPATH . 'public/uploads/users-pict/' . $oldUser['photo'])) {
-            @unlink(ROOTPATH . 'public/uploads/users-pict/' . $oldUser['photo']);
+                @unlink(ROOTPATH . 'public/uploads/users-pict/' . $oldUser['photo']);
             }
             // Pindahkan foto ke folder public/uploads/users-pict
             $photo->move(ROOTPATH . 'public/uploads/users-pict', $photoName);
@@ -88,7 +88,7 @@ class UsersController extends BaseController
         } else {
             // Jika tidak upload foto, gunakan foto lama
             if (!empty($oldUser['photo'])) {
-            $data['photo'] = $oldUser['photo'];
+                $data['photo'] = $oldUser['photo'];
             }
         }
 

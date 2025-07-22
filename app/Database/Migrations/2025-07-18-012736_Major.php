@@ -19,8 +19,22 @@ class Major extends Migration
                 "type" => "VARCHAR",
                 "constraint" => 150,
             ],
+            "skema_biaya" => [
+                "type" => "VARCHAR",
+                "constraint" => 20,
+            ],
             "deskripsi" => [
                 "type" => "TEXT",
+            ],
+            "photos" => [
+                "type" => "VARCHAR",
+                "constraint" => 255,
+                "null" => true,
+            ],
+            "is_mtu" => [
+                "type" => "TINYINT",
+                "constraint" => 1,
+                "default" => 0,
             ],
             "created_at" => [
                 "type" => "DATETIME",
@@ -46,6 +60,6 @@ class Major extends Migration
 
     public function down()
     {
-        $this->forge->dropTable("jurusan", true);
+        $this->forge->dropTable("major", true);
     }
 }

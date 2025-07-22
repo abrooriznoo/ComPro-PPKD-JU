@@ -57,6 +57,6 @@ class PendaftaranMtu extends Migration
     public function down()
     {
         $this->forge->dropTable('pendaftaran_mtu', true);
-        $this->forge->dropForeignKey('pendaftaran_mtu', 'pendaftaran_mtu_major_id_foreign');
+        // $this->forge->dropForeignKey('pendaftaran_mtu', 'pendaftaran_mtu_major_id_foreign');
     }
 }

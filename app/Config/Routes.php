@@ -11,6 +11,8 @@ $routes->get('/', 'Dashboard::index');
 
 $routes->get('lowongan', 'LowonganController::index');
 $routes->get('schedules', 'ClassSchedulesController::dashboard');
+$routes->get('pelatihan-regular', 'Dashboard::pelatihanReg');
+$routes->get('pelatihan-mtu', 'Dashboard::pelatihanMTU');
 
 // Admin routes
 $routes->get('login', 'AuthController::index');
