@@ -2,7 +2,7 @@
     data-aos-once="true" data-aos-duration="1000" data-aos-delay="100">
     <div class="container-fluid mt-5 px-0">
         <div class="col text-center mb-4">
-            <h1 class="fw-light">Kelas Pelatihan</h1>
+            <h1 class="fw-bold">Kelas Pelatihan</h1>
         </div>
         <div class="container my-5">
             <?php if (isset($data) && count($data) > 0): ?>
