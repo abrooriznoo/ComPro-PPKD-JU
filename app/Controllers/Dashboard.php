@@ -18,7 +18,7 @@ class Dashboard extends BaseController
         $schedules = new ClassSchedules();
 
         // Ambil semua data pelatihan
-        $data = $model->where('is_mtu', 0)->findAll();
+        $data = $model->where(['is_mtu' => 0, 'is_active' => 1])->findAll();
         $jadwal = $schedules->findAll();
 
         return view('pelatihan', [
@@ -33,7 +33,7 @@ class Dashboard extends BaseController
         $model = new Majors();
 
         // Ambil semua data pelatihan MTU
-        $data = $model->where('is_mtu', 1)->findAll();
+        $data = $model->where(['is_mtu' => 1, 'is_active' => 1])->findAll();
 
         return view('pelatihan', [
             'page' => 'pelatihan-mtu',

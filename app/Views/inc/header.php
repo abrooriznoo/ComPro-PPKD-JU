@@ -34,7 +34,7 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse ms-5" id="navbarNav">
+        <div class="collapse navbar-collapse" style="margin-left: 8.5rem;" id="navbarNav">
             <ul class="navbar-nav mb-2 mb-lg-0 mx-auto gap-3">
                 <li class="nav-item"><a class="nav-link" href="/" id="nav-home">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#tentang" id="nav-tentang">Tentang</a></li>
@@ -47,8 +47,8 @@
                         Pelatihan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="pelatihanDropdown">
-                        <li><a class="dropdown-item" href="pelatihan-regular">Regular</a></li>
-                        <li><a class="dropdown-item" href="pelatihan-mtu">Mobile Training Unit (MTU)</a></li>
+                        <li><a class="dropdown-item" href="/pelatihan-regular">Regular</a></li>
+                        <li><a class="dropdown-item" href="/pelatihan-mtu">Mobile Training Unit (MTU)</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
