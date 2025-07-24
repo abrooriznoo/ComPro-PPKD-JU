@@ -34,7 +34,7 @@
                     <?php if (count($filteredData) > 0): ?>
                         <?php foreach ($filteredData as $pelatihan): ?>
                             <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
-                                <div class="card" style="width: 25rem;">
+                                <div class="card shadow border-0 w-100" style="width: 25rem;">
                                     <img src="<?= base_url('uploads/class_photos/' . $pelatihan['photos']) ?>" class="card-img-top"
                                         alt="Photo Kelas" style="height: 210px; object-fit: cover;" />
                                     <div class="card-body">

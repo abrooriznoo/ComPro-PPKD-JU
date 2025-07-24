@@ -30,8 +30,8 @@
                                     continue;
                                 }
                             ?>
-                                <div class="col-md-4 d-flex py-5">
-                                    <div class="card shadow-sm border-0 w-100" style="border-radius: 10px;">
+                                <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center mb-5 mt-4">
+                                    <div class="card shadow border-0 w-100" style="border-radius: 10px;">
                                         <img src="<?= base_url('uploads/' . $row['photo']) ?>" class="card-img-top"
                                             alt="Lowongan"
                                             style="height: 220px; object-fit: cover; background-color: #f9f9f9;">
