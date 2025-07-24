@@ -30,7 +30,7 @@
                                     continue;
                                 }
                             ?>
-                                <div class="col-md-3 mb-4 d-flex">
+                                <div class="col-md-4 mb-5 d-flex">
                                     <div class="card shadow-sm border-0 w-100" style="border-radius: 10px;">
                                         <img src="<?= base_url('uploads/' . $row['photo']) ?>" class="card-img-top"
                                             alt="Lowongan"
