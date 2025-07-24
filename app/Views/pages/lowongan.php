@@ -9,7 +9,7 @@
                     </div>
                     <div class="container my-5">
                         <!-- Form Pencarian -->
-                        <form method="get" class="mb-4">
+                        <form method="get">
                             <div class="row justify-content-center">
                                 <div class="col-md-4 mb-2">
                                     <input type="text" name="search" class="form-control" placeholder="Cari judul atau perusahaan..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
@@ -30,7 +30,7 @@
                                     continue;
                                 }
                             ?>
-                                <div class="col-md-4 mb-5 d-flex">
+                                <div class="col-md-4 d-flex py-5">
                                     <div class="card shadow-sm border-0 w-100" style="border-radius: 10px;">
                                         <img src="<?= base_url('uploads/' . $row['photo']) ?>" class="card-img-top"
                                             alt="Lowongan"
