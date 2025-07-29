@@ -101,15 +101,90 @@
         <i class="bi bi-arrow-up"></i>
     </button>
 
-    <a href="#" class="btn btn-light rounded-circle shadow d-flex align-items-center justify-content-center"
-        id="backToTopBtn2" title="Kembali ke atas"
-        style="position: fixed; bottom: 32px; right: 32px; z-index: 999; width: 60px; height: 60px; display: none; font-size: 28px; color: #1096ad; background-color: #fff; border: 2px solid #1096ad;">
+    <!-- Chatbot Button -->
+    <button type="button" class="btn btn-light rounded-circle shadow d-flex align-items-center justify-content-center"
+        id="backToTopBtn2" title="Chatbot"
+        style="position: fixed; bottom: 32px; right: 32px; z-index: 999; width: 60px; height: 60px; display: none; font-size: 28px; color: #1096ad; background-color: #fff; border: 2px solid #1096ad;"
+        data-bs-toggle="modal" data-bs-target="#chatbotModal">
         <i class="bi bi-chat-quote"></i>
-    </a>
+    </button>
+
+    <!-- Chatbot Modal -->
+    <div class="modal fade" id="chatbotModal" tabindex="-1" aria-labelledby="chatbotModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow-lg rounded-4 border-0">
+                <div class="modal-header bg-info text-white rounded-top-4">
+                    <h5 class="modal-title" id="chatbotModalLabel">
+                        <i class="bi bi-robot me-2"></i>Chatbot Bantuan
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-light" style="padding-bottom: 0;">
+                    <div class="mb-2 text-center">
+                        <span class="badge bg-info bg-gradient text-white px-3 py-2 rounded-pill">
+                            <i class="bi bi-chat-dots me-1"></i> Halo! Ada yang bisa saya bantu?
+                        </span>
+                    </div>
+                    <div id="chatContainer"
+                        style="max-height: 320px; min-height: 180px; overflow-y: auto; border-radius: 12px; background: #fff; border: 1px solid #e3e6f0; padding: 12px; box-shadow: 0 2px 8px rgba(16,150,173,0.07);">
+                        <div id="chatMessages" style="font-size: 15px;"></div>
+                    </div>
+                    <div class="input-group mt-3 mb-1">
+                        <input type="text" id="userInput" class="form-control rounded-start-pill" placeholder="Tulis pesan..." onkeydown="if(event.key==='Enter'){sendMessage();}">
+                        <button class="btn btn-info rounded-end-pill text-white px-4" onclick="sendMessage()">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light rounded-bottom-4 py-2">
+                    <small class="text-muted"><i class="bi bi-shield-lock"></i> Chat ini bersifat simulasi.</small>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <?php include APPPATH . 'Views/inc/footer.php'; ?>
     </footer>
+
+    <!-- Chatbot Script -->
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            if (!message) return;
+
+            const chatMessages = document.getElementById('chatMessages');
+
+            // Tambahkan pesan pengguna
+            const userMsg = document.createElement('div');
+            userMsg.innerHTML = `<strong>Anda:</strong> ${message}`;
+            chatMessages.appendChild(userMsg);
+
+            // Bersihkan input
+            input.value = '';
+
+            // Simulasi balasan bot
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.innerHTML = `<strong>Bot:</strong> ${getBotReply(message)}`;
+                chatMessages.appendChild(botMsg);
+
+                // Scroll ke bawah
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 600);
+        }
+
+        // Logika jawaban bot sederhana
+        function getBotReply(userMessage) {
+            const msg = userMessage.toLowerCase();
+            if (msg.includes('halo')) return 'Halo juga! Apa yang bisa saya bantu?';
+            if (msg.includes('nama')) return 'Saya adalah chatbot sederhana.';
+            if (msg.includes('bantuan')) return 'Tentu! Silakan beri tahu apa yang Anda butuhkan.';
+            return 'Maaf, saya tidak mengerti. Bisa dijelaskan lagi?';
+        }
+    </script>
+
 
     <script>
         // Show/hide button on scroll

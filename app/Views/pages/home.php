@@ -198,7 +198,7 @@
                                 </p>
 
                                 <!-- Link jika diperlukan -->
-                                <a href="test.php" class="stretched-link"></a>
+                                <a href="pelatihan-regular" class="stretched-link text-decoration-none text-white"></a>
                             </div>
                         </div>
                     </div>
@@ -228,7 +228,7 @@
                                 </p>
 
                                 <!-- Link jika diperlukan -->
-                                <a href="test.php" class="stretched-link"></a>
+                                <a href="pelatihan-mtu" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -258,7 +258,7 @@
                                 </p>
 
                                 <!-- Link jika diperlukan -->
-                                <a href="test.php" class="stretched-link"></a>
+                                <a href="#" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
@@ -631,7 +631,8 @@
                                     style="max-width: 350px; height: 350px; width: 350px;">
                             </div>
 
-                            <button type="button" class="btn btn-primary">Daftar Pelatihan Sekarang!</button>
+                            <a href="registration/regis-reg" class="btn btn-info text-white shadow"
+                                target="_blank">Daftar Pelatihan Sekarang!</a>
                         </div>
                     </div>
                 </div>
@@ -721,7 +722,7 @@
                                             Pendaftaran kolektif tersebut diajukan oleh perwakilan pemohon pelatihan
                                             dengan mengajukan surat permohonan. Contoh format surat permohonan pelatihan
                                             MTU pada link berikut :</p>
-                                        <a href="asset/doc/SuratPermohonanMTU.docx" class="btn btn-info mb-3 text-white"
+                                        <a href="asset/doc/SuratPermohonanMTU.docx" class="btn btn-info mt-3 text-white"
                                             download>Unduh Format Surat Permohonan</a>
                                     </div>
                                     <div class="col-4 d-flex justify-content-center align-items-center">
@@ -828,7 +829,8 @@
                                                 <span>Sertifikat Pelatihan.</span>
                                             </li>
                                         </ul>
-                                        <a href="#" class="btn btn-info mb-3" target="_blank">Daftar Pelatihan
+                                        <a href="registration/regis-mtu" class="btn btn-info text-white shadow mt-3"
+                                            target="_blank">Daftar Pelatihan
                                             Sekarang!</a>
                                     </div>
                                     <div class="col-4 d-flex justify-content-center align-items-center">
