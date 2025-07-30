@@ -147,18 +147,16 @@
                     </div>
                     <hr>
                     <div class="form-group">
-                        <label for="">Is Active</label>
-                        <div class="d-flex gap-3">
-                            <div>
-                                <input type="radio" id="is_active_publish<?= $row['id'] ?>" name="is_active" value="1"
-                                    <?= $row['is_active'] ? 'checked' : '' ?>>
-                                <label for="is_active_publish<?= $row['id'] ?>">Publish</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="is_active_archive<?= $row['id'] ?>" name="is_active" value="0"
-                                    <?= !$row['is_active'] ? 'checked' : '' ?>>
-                                <label for="is_active_archive<?= $row['id'] ?>">Archive</label>
-                            </div>
+                        <label>Aktif?</label><br>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-outline-success <?= $row['is_active'] ? 'active' : '' ?>">
+                                <input type="radio" name="is_active" id="activeYes<?= $row['id'] ?>" value="1"
+                                    autocomplete="off" <?= $row['is_active'] ? 'checked' : '' ?>> Aktif
+                            </label>
+                            <label class="btn btn-outline-danger <?= !$row['is_active'] ? 'active' : '' ?>">
+                                <input type="radio" name="is_active" id="activeNo<?= $row['id'] ?>" value="0"
+                                    autocomplete="off" <?= !$row['is_active'] ? 'checked' : '' ?>> Tidak Aktif
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -232,20 +230,6 @@
                     <div class="form-group col-md-6">
                         <label>Akhir Ujian</label>
                         <input type="date" name="exam_end" class="form-control" required>
-                    </div>
-                </div>
-                <hr>
-                <div class="form-group">
-                    <label for="">Is Active</label>
-                    <div class="d-flex gap-3">
-                        <div>
-                            <input type="radio" id="is_active_publish_add" name="is_active" value="1" checked>
-                            <label for="is_active_publish_add">Publish</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="is_active_archive_add" name="is_active" value="0">
-                            <label for="is_active_archive_add">Archive</label>
-                        </div>
                     </div>
                 </div>
             </div>

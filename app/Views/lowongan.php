@@ -14,6 +14,27 @@
         border-radius: 12px;
         overflow: hidden;
     }
+
+    .glass-button {
+        background: rgba(255, 255, 255, 0.1);
+        /* light transparent bg */
+        backdrop-filter: blur(10px) saturate(180%);
+        -webkit-backdrop-filter: blur(10px) saturate(180%);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .glass-button:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.05);
+    }
+
+    .glass-button i {
+        mix-blend-mode: difference;
+        color: white;
+        /* Atur ke white atau black tergantung desain */
+    }
 </style>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,47 +70,49 @@
     <?php foreach ($data as $row): ?>
         <div class="modal fade" id="detailModal<?= $row['id'] ?>" tabindex="-1"
             aria-labelledby="detailModalLabel<?= $row['id'] ?>" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header bg-primary text-white">
-                        <h5 class="modal-title" id="detailModalLabel<?= $row['id'] ?>">
-                            <?= $row['title'] ?>
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+                <div class="modal-content border-0 shadow rounded-4 overflow-hidden">
 
-                        <!-- Banner Gambar -->
-                        <div class="text-center mb-3">
-                            <img src="<?= base_url('uploads/' . $row['photo']) ?>" class="img-fluid rounded shadow"
-                                style="max-height: 300px; object-fit: cover;" alt="Lowongan">
+                    <!-- Header Gambar dengan Overlay -->
+                    <div class="position-relative" style="height: 350px;">
+                        <img src="<?= base_url('uploads/' . $row['photo']) ?>" alt="Lowongan" class="w-100 h-100"
+                            style="object-fit: cover; object-position: center; width: 100%; height: 100%;">
+                        <!-- Floating close button -->
+                        <button type="button"
+                            class="position-absolute top-0 end-0 m-3 border-0 rounded-circle d-flex align-items-center justify-content-center glass-button"
+                            style="width: 32px; height: 32px; z-index: 1.5;" data-bs-dismiss="modal" aria-label="Close">
+                            <div class="fw-bold fs-5 text-white">
+                                <i class="bi bi-x"></i>
+                            </div>
+                        </button>
+                        <!-- Gradient ke putih -->
+                        <div class="position-absolute bottom-0 start-0 w-100"
+                            style="height: 120px; background: linear-gradient(to top, #fff, transparent);"></div>
+                    </div>
+
+                    <!-- Konten Modal -->
+                    <div class="modal-body bg-white px-4 pt-0 pb-4">
+                        <div class="text-center mt-n5">
+                            <h4 class="fw-bold"><?= $row['title'] ?></h4>
+                            <h6 class="text-muted"><?= $row['company'] ?? 'Hariston Hotel & Suites' ?></h6>
+                            <p class="text-muted small mb-0">Diposting: <?= date('d M Y', strtotime($row['created_at'])) ?>
+                            </p>
+                            <p class="text-muted small">Diperbarui: <?= date('d M Y', strtotime($row['updated_at'])) ?></p>
                         </div>
 
-                        <!-- Informasi Umum -->
-                        <h4 class="text-center fw-bold">
-                            <?= isset($row['company']) ? $row['company'] : 'Hariston Hotel & Suites' ?>
-                        </h4>
-                        <p class="text-center text-muted mb-1">Diposting:
-                            <?= date('d M Y', strtotime($row['created_at'])) ?>
-                        </p>
-                        <p class="text-center text-muted">Diperbarui:
-                            <?= date('d M Y', strtotime($row['updated_at'])) ?>
-                        </p>
-                        <hr>
+                        <hr class="my-4">
 
-                        <!-- Deskripsi Pekerjaan -->
-                        <h5 class="fw-bold">Deskripsi Pekerjaan</h5>
-
-                        <!-- Requirements -->
-                        <div class="bg-light p-3 rounded mt-3">
-                            <h6 class="fw-bold">Requirements:</h6>
-                            <ul>
+                        <!-- Deskripsi -->
+                        <h5 class="fw-semibold mb-3">Deskripsi Pekerjaan</h5>
+                        <div class="bg-light p-4 rounded-3">
+                            <h6 class="fw-bold mb-2">Requirements:</h6>
+                            <ul class="mb-0">
                                 <?php
                                 $descPoints = explode("\n", $row['description']);
                                 foreach ($descPoints as $point) {
                                     $trimmed = trim($point);
                                     if (!empty($trimmed)) {
-                                        echo "<li>{$trimmed}</li>";
+                                        echo "<li class='mb-1'>{$trimmed}</li>";
                                     }
                                 }
                                 ?>
@@ -97,25 +120,25 @@
                         </div>
 
                         <!-- QR & CTA -->
-                        <div class="row mt-4">
-                            <div class="col-md-6 text-center">
-                                <img src="<?= base_url('uploads/qr-code.png') ?>" alt="QR Code" style="max-width: 150px;">
-                                <p class="small mt-2">Scan untuk melamar</p>
+                        <div class="row mt-5">
+                            <div class="col-md-6 text-center mb-3 mb-md-0">
+                                <img src="<?= base_url('uploads/qr-code.png') ?>" alt="QR Code" class="img-fluid"
+                                    style="max-width: 130px;">
+                                <p class="small text-muted mt-2">Scan untuk melamar</p>
                             </div>
                             <div class="col-md-6 d-flex align-items-center justify-content-center">
-                                <a href="#" class="btn btn-primary">
+                                <a href="#" class="btn btn-primary btn-lg px-4 rounded-pill shadow-sm">
                                     Lamar Sekarang
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                        </div> -->
                 </div>
             </div>
         </div>
     <?php endforeach; ?>
+
+
 
     <!-- Chatbot Button -->
     <button type="button" class="btn btn-light rounded-circle shadow d-flex align-items-center justify-content-center"

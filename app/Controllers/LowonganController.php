@@ -14,8 +14,8 @@ class LowonganController extends BaseController
 
         // Ambil semua data lowongan, urutkan descending berdasarkan created_at
         $data = $model->where('is_active', 1)
-                      ->orderBy('created_at', 'DESC')
-                      ->findAll();
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
 
         return view('lowongan', ['data' => $data]);
     }

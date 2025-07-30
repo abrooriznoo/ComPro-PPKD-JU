@@ -13,7 +13,7 @@ class ClassSchedulesController extends BaseController
     public function dashboard()
     {
         $schedules = new ClassSchedules();
-        $data = $schedules->findAll();
+        $data = $schedules->where('is_active', 1)->findAll();
 
         $majorsModel = new Majors();
         $majors = $majorsModel->findAll();
@@ -57,7 +57,7 @@ class ClassSchedulesController extends BaseController
         ];
 
         $schedules->insert($data);
-        return redirect()->to('/schedules-admin');
+        return redirect()->to('/schedules-admin')->with('success', 'Jadwal kelas berhasil ditambahkan.');
     }
 
     public function update($id)
@@ -79,13 +79,13 @@ class ClassSchedulesController extends BaseController
         ];
 
         $schedules->update($id, $data);
-        return redirect()->to('/schedules-admin');
+        return redirect()->to('/schedules-admin')->with('success', 'Jadwal kelas berhasil diperbarui.');
     }
 
     public function destroy($id)
     {
         $schedules = new ClassSchedules();
         $schedules->delete($id);
-        return redirect()->to('/schedules-admin');
+        return redirect()->to('/schedules-admin')->with('success', 'Jadwal kelas berhasil dihapus.');
     }
 }

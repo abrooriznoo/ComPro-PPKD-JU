@@ -22,7 +22,7 @@
             <?php
             $no = 1;
             foreach ($users as $row):
-            ?>
+                ?>
                 <tr>
                     <td><?= $no++ ?>.</td>
                     <td>
@@ -98,8 +98,8 @@
                     <div class="form-group">
                         <label>Foto Saat Ini</label><br>
                         <?php if (!empty($row['photo'])): ?>
-                            <img src="<?= base_url('uploads/users-pict/' . $row['photo']) ?>" alt="Photo" class="img-thumbnail mb-2"
-                                style="width:80px; height:80px;">
+                            <img src="<?= base_url('uploads/users-pict/' . $row['photo']) ?>" alt="Photo"
+                                class="img-thumbnail mb-2" style="width:80px; height:80px;">
                         <?php else: ?>
                             <span class="text-muted">No Photo</span>
                         <?php endif; ?>
@@ -110,16 +110,16 @@
                     </div>
                     <hr>
                     <div class="form-group">
-                        <label for="">Is Active</label>
-                        <div class="d-flex gap-3">
-                            <div>
-                                <input type="radio" id="is_active_publish<?= $row['id'] ?>" name="is_active" class="form-control-radio" value="1" <?= $row['is_active'] ? 'checked' : '' ?>>
-                                <label for="is_active_publish<?= $row['id'] ?>">Active</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="is_active_archive<?= $row['id'] ?>" name="is_active" class="form-control-radio" value="0" <?= !$row['is_active'] ? 'checked' : '' ?>>
-                                <label for="is_active_archive<?= $row['id'] ?>">Inactive</label>
-                            </div>
+                        <label>Aktif?</label><br>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-outline-success <?= $row['is_active'] ? 'active' : '' ?>">
+                                <input type="radio" name="is_active" id="activeYes<?= $row['id'] ?>" value="1"
+                                    autocomplete="off" <?= $row['is_active'] ? 'checked' : '' ?>> Aktif
+                            </label>
+                            <label class="btn btn-outline-danger <?= !$row['is_active'] ? 'active' : '' ?>">
+                                <input type="radio" name="is_active" id="activeNo<?= $row['id'] ?>" value="0"
+                                    autocomplete="off" <?= !$row['is_active'] ? 'checked' : '' ?>> Tidak Aktif
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -135,8 +135,7 @@
 <!-- MODAL TAMBAH -->
 <div class="modal fade" id="modalAddUser" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
-        <form action="<?= base_url('users/store') ?>" method="post" enctype="multipart/form-data"
-            class="modal-content">
+        <form action="<?= base_url('users/store') ?>" method="post" enctype="multipart/form-data" class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Tambah User</h5>
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>

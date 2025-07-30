@@ -43,7 +43,7 @@ class MajorsController extends BaseController
         }
 
         $major->insert($data);
-        return redirect()->to('/majors');
+        return redirect()->to('/majors')->with('success', 'Data jurusan berhasil ditambahkan.');
     }
 
 
@@ -69,18 +69,18 @@ class MajorsController extends BaseController
             // Ambil data lama jika foto tidak diupload
             $existing = $major->find($id);
             if ($existing && isset($existing['photos'])) {
-            $data['photos'] = $existing['photos'];
+                $data['photos'] = $existing['photos'];
             }
         }
 
         $major->update($id, $data);
-        return redirect()->to('/majors');
+        return redirect()->to('/majors')->with('success', 'Data jurusan berhasil diperbarui.');
     }
 
     public function destroy($id)
     {
         $major = new Majors();
         $major->delete($id);
-        return redirect()->to('/majors');
+        return redirect()->to('/majors')->with('success', 'Data jurusan berhasil dihapus.');
     }
 }
