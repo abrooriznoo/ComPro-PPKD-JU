@@ -61,9 +61,11 @@
                     <select name="major_id" id="major_id" class="form-control">
                         <option value="">------</option>
                         <?php foreach ($majors as $class): ?>
-                            <option value="<?= htmlspecialchars($class['id']) ?>">
-                                <?= htmlspecialchars($class['nama_jurusan']) ?>
-                            </option>
+                            <?php if (isset($class['is_mtu']) && $class['is_mtu'] == 1): ?>
+                                <option value="<?= htmlspecialchars($class['id']) ?>">
+                                    <?= htmlspecialchars($class['nama_jurusan']) ?>
+                                </option>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </select>
                 </div>

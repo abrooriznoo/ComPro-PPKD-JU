@@ -5,6 +5,16 @@
     </button>
 </div>
 
+<?php
+// Pagination setup
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$perPage = 5;
+$totalData = count($lowongan);
+$totalPages = ceil($totalData / $perPage);
+$start = ($page - 1) * $perPage;
+$lowonganPage = array_slice($lowongan, $start, $perPage);
+?>
+
 <table class="table table-bordered table-hover table-striped">
     <thead class="thead-dark">
         <tr>
@@ -19,10 +29,10 @@
         </tr>
     </thead>
     <tbody>
-        <?php if (!empty($lowongan) && is_array($lowongan)): ?>
+        <?php if (!empty($lowonganPage) && is_array($lowonganPage)): ?>
             <?php
-            $no = 1;
-            foreach ($lowongan as $row):
+            $no = $start + 1;
+            foreach ($lowonganPage as $row):
                 ?>
                 <tr>
                     <td><?= $no++ ?>.</td>
@@ -55,11 +65,30 @@
             <?php endforeach; ?>
         <?php else: ?>
             <tr>
-                <td colspan="7" class="text-center text-muted">Belum ada data lowongan.</td>
+                <td colspan="8" class="text-center text-muted">Belum ada data lowongan.</td>
             </tr>
         <?php endif; ?>
     </tbody>
 </table>
+
+<!-- Pagination -->
+<?php if ($totalPages > 1): ?>
+<nav>
+    <ul class="pagination justify-content-center">
+        <li class="page-item<?= $page <= 1 ? ' disabled' : '' ?>">
+            <a class="page-link" href="?page=<?= $page - 1 ?>" tabindex="-1">Previous</a>
+        </li>
+        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+            <li class="page-item<?= $i == $page ? ' active' : '' ?>">
+                <a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a>
+            </li>
+        <?php endfor; ?>
+        <li class="page-item<?= $page >= $totalPages ? ' disabled' : '' ?>">
+            <a class="page-link" href="?page=<?= $page + 1 ?>">Next</a>
+        </li>
+    </ul>
+</nav>
+<?php endif; ?>
 
 <!-- MODAL EDIT -->
 <?php foreach ($lowongan as $row): ?>

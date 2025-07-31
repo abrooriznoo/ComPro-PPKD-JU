@@ -28,6 +28,25 @@
                         return strpos(strtolower($item['nama_jurusan']), $q) !== false;
                     });
                 }
+
+                // Pagination variables
+                $perPage = 6;
+                $totalData = count($filteredData);
+                $totalPages = ceil($totalData / $perPage);
+                $page = isset($_GET['page']) && is_numeric($_GET['page']) && $_GET['page'] > 0 ? (int)$_GET['page'] : 1;
+                if ($page > $totalPages) $page = $totalPages;
+                $offset = ($page - 1) * $perPage;
+
+                // Slice data for current page
+                $filteredData = array_slice($filteredData, $offset, $perPage);
+
+                // Build pagination links
+                function buildPageUrl($page)
+                {
+                    $params = $_GET;
+                    $params['page'] = $page;
+                    return '?' . http_build_query($params);
+                }
                 ?>
 
                 <div class="row g-4 justify-content-center" style="font-size: 1.1rem;">
@@ -90,6 +109,25 @@
                     <div class="alert alert-warning" role="alert">
                         Tidak ada data pelatihan yang tersedia.
                     </div>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($totalPages > 1): ?>
+                <div class="col-12 d-flex justify-content-center mt-5">
+                    <nav>
+                        <ul class="pagination">
+                            <?php
+                            $query = $_GET;
+                            for ($i = 1; $i <= $totalPages; $i++):
+                                $query['page'] = $i;
+                                $url = '?' . http_build_query($query);
+                            ?>
+                                <li class="page-item <?= $i == $page ? 'active' : '' ?>">
+                                    <a class="page-link" href="<?= $url ?>"><?= $i ?></a>
+                                </li>
+                            <?php endfor; ?>
+                        </ul>
+                    </nav>
                 </div>
             <?php endif; ?>
         </div>

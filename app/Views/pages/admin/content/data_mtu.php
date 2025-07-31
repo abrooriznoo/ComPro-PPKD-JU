@@ -2,6 +2,23 @@
     <h2 class="mb-0">Data Registrasi Peserta MTU</h2>
 </div>
 
+<form method="get" class="mb-3 d-flex align-items-center">
+    <label for="majorFilter" class="mr-2 mb-0">Filter Jurusan:</label>
+    <select name="major" id="majorFilter" class="form-control mr-2" style="width:auto;">
+        <option value="">Semua Jurusan</option>
+        <?php if (!empty($majors) && is_array($majors)): ?>
+            <?php foreach ($majors as $major): ?>
+                <?php if (isset($major['is_mtu']) && $major['is_mtu'] == 1): ?>
+                    <option value="<?= htmlspecialchars($major['id']) ?>" <?= (isset($_GET['major']) && $_GET['major'] == $major['id']) ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($major['nama_jurusan']) ?>
+                    </option>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </select>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
 <table class="table table-bordered table-hover table-striped">
     <thead class="thead-dark">
         <tr>
@@ -17,9 +34,18 @@
         </tr>
     </thead>
     <tbody>
-        <?php if (!empty($data) && is_array($data)): ?>
+        <?php
+        // Filter data by major if filter is set
+        $filteredData = $data;
+        if (isset($_GET['major']) && $_GET['major'] !== '') {
+            $filteredData = array_filter($data, function ($row) {
+                return isset($row['major_id']) && $row['major_id'] == $_GET['major'];
+            });
+        }
+        ?>
+        <?php if (!empty($filteredData) && is_array($filteredData)): ?>
             <?php $no = 1;
-            foreach ($data as $row): ?>
+            foreach ($filteredData as $row): ?>
                 <tr>
                     <td><?= $no++ ?>.</td>
                     <td><?= htmlspecialchars($row['id']) ?></td>
