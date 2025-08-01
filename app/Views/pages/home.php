@@ -31,8 +31,8 @@
                 <div class="row justify-content-center m-5">
                     <!-- Item 1 -->
                     <div class="col-md-4 mb-4 d-flex justify-content-center">
-                        <div class="service-item position-relative p-3" style="background-color: rgb(56, 60, 61);">
-                            <a href="test.php" class="stretched-link text-decoration-none text-white">
+                        <div class="service-item position-relative p-3 zoom-card" style="background-color: rgb(56, 60, 61); border-radius: 15px; transition: transform 0.3s;">
+                            <a href="#" class="stretched-link text-decoration-none text-white">
                                 <div class="text-start">
                                     <i class="bi bi-activity icon"
                                         style="font-size: 3rem; color: rgb(16, 150, 173);"></i>
@@ -47,8 +47,8 @@
 
                     <!-- Item 2 -->
                     <div class="col-md-4 mb-4 d-flex justify-content-center">
-                        <div class="service-item position-relative p-3" style="background-color: rgb(56, 60, 61);">
-                            <a href="test2.php" class="stretched-link text-decoration-none text-white">
+                        <div class="service-item position-relative p-3 zoom-card" style="background-color: rgb(56, 60, 61); border-radius: 15px; transition: transform 0.3s;">
+                            <a href="#" class="stretched-link text-decoration-none text-white">
                                 <div class="text-start">
                                     <i class="bi bi-bounding-box-circles icon"
                                         style="font-size: 3rem; color: rgb(16, 150, 173);"></i>
@@ -61,8 +61,8 @@
                     </div>
 
                     <div class="col-md-4 mb-4 d-flex justify-content-center">
-                        <div class="service-item position-relative p-3" style="background-color: rgb(56, 60, 61);">
-                            <a href="test2.php" class="stretched-link text-decoration-none text-white">
+                        <div class="service-item position-relative p-3 zoom-card" style="background-color: rgb(56, 60, 61); border-radius: 15px; transition: transform 0.3s;">
+                            <a href="#" class="stretched-link text-decoration-none text-white">
                                 <div class="text-start">
                                     <i class="bi bi-calendar4-week icon"
                                         style="font-size: 3rem; color: rgb(16, 150, 173);"></i>

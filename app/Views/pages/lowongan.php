@@ -26,8 +26,8 @@
                         $search = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
                         $filteredData = [];
                         foreach ($data as $row) {
-                            $title = strtolower($row['title']);
-                            $company = strtolower(isset($row['company']) ? $row['company'] : 'Hariston Hotel & Suites');
+                            $title = strtolower($row->title);
+                            $company = strtolower(isset($row->company) ? $row->company : 'Hariston Hotel & Suites');
                             if ($search && strpos($title, $search) === false && strpos($company, $search) === false) {
                                 continue;
                             }
@@ -51,19 +51,19 @@
                                 <?php foreach ($displayData as $row): ?>
                                     <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center mb-5 mt-4">
                                         <div class="card shadow border-0 w-100" style="border-radius: 10px;">
-                                            <img src="<?= base_url('uploads/' . $row['photo']) ?>" class="card-img-top"
+                                            <img src="<?= base_url('uploads/' . $row->photo) ?>" class="card-img-top"
                                                 alt="Lowongan"
                                                 style="height: 220px; object-fit: cover; background-color: #f9f9f9;">
                                             <div class="card-body d-flex flex-column">
-                                                <h5 class="card-title mb-1"><?= $row['title'] ?></h5>
-                                                <small class="text-muted mb-2"><?= isset($row['company']) ? $row['company'] : 'Hariston Hotel & Suites' ?></small>
+                                                <h5 class="card-title mb-1"><?= $row->title ?></h5>
+                                                <small class="text-muted mb-2"><?= isset($row->company) ? $row->company : 'Hariston Hotel & Suites' ?></small>
                                                 <?php
                                                 $maxWords = 15;
-                                                $words = explode(' ', strip_tags($row['description']));
+                                                $words = explode(' ', strip_tags($row->description));
                                                 if (count($words) > $maxWords) {
                                                     $shortDesc = implode(' ', array_slice($words, 0, $maxWords)) . '...';
                                                 } else {
-                                                    $shortDesc = $row['description'];
+                                                    $shortDesc = $row->description;
                                                 }
                                                 ?>
                                                 <p class="card-text small text-muted" style="min-height: 100px;">
@@ -71,9 +71,9 @@
                                                 </p>
                                                 <div class="d-flex justify-content-between align-items-center mt-auto">
                                                     <small class="text-muted">Diposting:
-                                                        <?= date('d M Y', strtotime($row['created_at'])) ?></small>
+                                                        <?= date('d M Y', strtotime($row->created_at)) ?></small>
                                                     <button type="button" class="btn btn-sm btn-info text-white"
-                                                        data-bs-toggle="modal" data-bs-target="#detailModal<?= $row['id'] ?>">
+                                                        data-bs-toggle="modal" data-bs-target="#detailModal<?= $row->id ?>">
                                                         Detail
                                                     </button>
                                                 </div>

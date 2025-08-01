@@ -37,26 +37,26 @@ $lowonganPage = array_slice($lowongan, $start, $perPage);
                 <tr>
                     <td><?= $no++ ?>.</td>
                     <td>
-                        <?php if (!empty($row['photo'])): ?>
-                            <img src="<?= base_url('uploads/' . $row['photo']) ?>" alt="Photo" class="img-thumbnail"
+                        <?php if (!empty($row->photo)): ?>
+                            <img src="<?= base_url('uploads/' . $row->photo) ?>" alt="Photo" class="img-thumbnail"
                                 style="width:60px; height:60px;">
                         <?php else: ?>
                             <span class="text-muted">No Photo</span>
                         <?php endif; ?>
                     </td>
-                    <td><?= esc($row['title']) ?></td>
-                    <td><?= esc($row['company']) ?></td>
-                    <td><?= esc($row['description']) ?></td>
-                    <td><?= date('d M Y', strtotime($row['created_at'])) ?></td>
+                    <td><?= esc($row->title) ?></td>
+                    <td><?= esc($row->company) ?></td>
+                    <td><?= esc($row->description) ?></td>
+                    <td><?= date('d M Y', strtotime($row->created_at)) ?></td>
                     <td>
-                        <?= $row['is_active'] ? '<span class="badge badge-success">Active</span>' : '<span class="badge badge-danger">Inactive</span>' ?>
+                        <?= $row->is_active ? '<span class="badge badge-success">Active</span>' : '<span class="badge badge-danger">Inactive</span>' ?>
                     </td>
                     <td>
                         <button class="btn btn-sm btn-primary" data-toggle="modal"
-                            data-target="#modalEditLowongan<?= $row['id'] ?>">
+                            data-target="#modalEditLowongan<?= $row->id ?>">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <form action="<?= base_url('lowongan/delete/' . $row['id']) ?>" method="post" style="display:inline;"
+                        <form action="<?= base_url('lowongan/delete/' . $row->id) ?>" method="post" style="display:inline;"
                             onsubmit="return confirm('Yakin ingin hapus data ini?')">
                             <button class="btn btn-sm btn-danger" type="submit"><i class="fas fa-trash"></i></button>
                         </form>
@@ -92,13 +92,13 @@ $lowonganPage = array_slice($lowongan, $start, $perPage);
 
 <!-- MODAL EDIT -->
 <?php foreach ($lowongan as $row): ?>
-    <div class="modal fade" id="modalEditLowongan<?= $row['id'] ?>" tabindex="-1" role="dialog"
-        aria-labelledby="editLowonganLabel<?= $row['id'] ?>" aria-hidden="true">
+    <div class="modal fade" id="modalEditLowongan<?= $row->id ?>" tabindex="-1" role="dialog"
+        aria-labelledby="editLowonganLabel<?= $row->id ?>" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
-            <form action="<?= base_url('lowongan/update/' . $row['id']) ?>" method="post" enctype="multipart/form-data"
+            <form action="<?= base_url('lowongan/update/' . $row->id) ?>" method="post" enctype="multipart/form-data"
                 class="modal-content">
                 <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" id="editLowonganLabel<?= $row['id'] ?>"><i class="fas fa-edit"></i> Edit
+                    <h5 class="modal-title" id="editLowonganLabel<?= $row->id ?>"><i class="fas fa-edit"></i> Edit
                         Lowongan</h5>
                     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
@@ -107,23 +107,23 @@ $lowonganPage = array_slice($lowongan, $start, $perPage);
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Title</label>
-                            <input type="text" name="title" class="form-control" value="<?= esc($row['title']) ?>" required>
+                            <input type="text" name="title" class="form-control" value="<?= esc($row->title) ?>" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Company</label>
-                            <input type="text" name="company" class="form-control" value="<?= esc($row['company']) ?>"
+                            <input type="text" name="company" class="form-control" value="<?= esc($row->company) ?>"
                                 required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Description</label>
                         <textarea name="description" class="form-control" rows="4"
-                            required><?= esc($row['description']) ?></textarea>
+                            required><?= esc($row->description) ?></textarea>
                     </div>
                     <div class="form-group">
                         <label>Foto Saat Ini</label><br>
-                        <?php if (!empty($row['photo'])): ?>
-                            <img src="<?= base_url('uploads/' . $row['photo']) ?>" alt="Photo" class="img-thumbnail mb-2"
+                        <?php if (!empty($row->photo)): ?>
+                            <img src="<?= base_url('uploads/' . $row->photo) ?>" alt="Photo" class="img-thumbnail mb-2"
                                 style="width:80px; height:80px;">
                         <?php else: ?>
                             <span class="text-muted">No Photo</span>
@@ -137,13 +137,13 @@ $lowonganPage = array_slice($lowongan, $start, $perPage);
                     <div class="form-group">
                         <label>Aktif?</label><br>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-outline-success <?= $row['is_active'] ? 'active' : '' ?>">
-                                <input type="radio" name="is_active" id="activeYes<?= $row['id'] ?>" value="1"
-                                    autocomplete="off" <?= $row['is_active'] ? 'checked' : '' ?>> Aktif
+                            <label class="btn btn-outline-success <?= $row->is_active ? 'active' : '' ?>">
+                                <input type="radio" name="is_active" id="activeYes<?= $row->id ?>" value="1"
+                                    autocomplete="off" <?= $row->is_active ? 'checked' : '' ?>> Aktif
                             </label>
-                            <label class="btn btn-outline-danger <?= !$row['is_active'] ? 'active' : '' ?>">
-                                <input type="radio" name="is_active" id="activeNo<?= $row['id'] ?>" value="0"
-                                    autocomplete="off" <?= !$row['is_active'] ? 'checked' : '' ?>> Tidak Aktif
+                            <label class="btn btn-outline-danger <?= !$row->is_active ? 'active' : '' ?>">
+                                <input type="radio" name="is_active" id="activeNo<?= $row->id ?>" value="0"
+                                    autocomplete="off" <?= !$row->is_active ? 'checked' : '' ?>> Tidak Aktif
                             </label>
                         </div>
                     </div>

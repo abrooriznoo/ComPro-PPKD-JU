@@ -68,14 +68,14 @@
     </main>
 
     <?php foreach ($data as $row): ?>
-        <div class="modal fade" id="detailModal<?= $row['id'] ?>" tabindex="-1"
-            aria-labelledby="detailModalLabel<?= $row['id'] ?>" aria-hidden="true">
+        <div class="modal fade" id="detailModal<?= $row->id ?>" tabindex="-1"
+            aria-labelledby="detailModalLabel<?= $row->id ?>" aria-hidden="true">
             <div class="modal-dialog modal-md modal-dialog-centered">
                 <div class="modal-content border-0 shadow rounded-4 overflow-hidden">
 
                     <!-- Header Gambar dengan Overlay -->
                     <div class="position-relative" style="height: 350px;">
-                        <img src="<?= base_url('uploads/' . $row['photo']) ?>" alt="Lowongan" class="w-100 h-100"
+                        <img src="<?= base_url('uploads/' . $row->photo) ?>" alt="Lowongan" class="w-100 h-100"
                             style="object-fit: cover; object-position: center; width: 100%; height: 100%;">
                         <!-- Floating close button -->
                         <button type="button"
@@ -93,11 +93,11 @@
                     <!-- Konten Modal -->
                     <div class="modal-body bg-white px-4 pt-0 pb-4">
                         <div class="text-center mt-n5">
-                            <h4 class="fw-bold"><?= $row['title'] ?></h4>
-                            <h6 class="text-muted"><?= $row['company'] ?? 'Hariston Hotel & Suites' ?></h6>
-                            <p class="text-muted small mb-0">Diposting: <?= date('d M Y', strtotime($row['created_at'])) ?>
+                            <h4 class="fw-bold"><?= $row->title ?></h4>
+                            <h6 class="text-muted"><?= $row->company ?? 'Hariston Hotel & Suites' ?></h6>
+                            <p class="text-muted small mb-0">Diposting: <?= date('d M Y', strtotime($row->created_at)) ?>
                             </p>
-                            <p class="text-muted small">Diperbarui: <?= date('d M Y', strtotime($row['updated_at'])) ?></p>
+                            <p class="text-muted small">Diperbarui: <?= date('d M Y', strtotime($row->updated_at)) ?></p>
                         </div>
 
                         <hr class="my-4">
@@ -108,7 +108,7 @@
                             <h6 class="fw-bold mb-2">Requirements:</h6>
                             <ul class="mb-0">
                                 <?php
-                                $descPoints = explode("\n", $row['description']);
+                                $descPoints = explode("\n", $row->description);
                                 foreach ($descPoints as $point) {
                                     $trimmed = trim($point);
                                     if (!empty($trimmed)) {

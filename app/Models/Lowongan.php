@@ -13,4 +13,6 @@ class Lowongan extends Model
 
     // Jika ingin otomatis mengelola created_at dan updated_at, aktifkan ini:
     protected $useTimestamps = true;
+
+    protected $returnType = Lowongan::class; // Mengembalikan hasil sebagai array
 }
